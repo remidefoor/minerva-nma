@@ -1,8 +1,15 @@
 <resources>
+    <!-- log in -->
     <string name="app_name">Minerva</string>
     <string name="email">Email</string>
     <string name="password">Password</string>
-    <string name="confirm_password">Confirm password</string>
     <string name="log_in">Log in</string>
     <string name="sign_up">Sign up</string>
+    <!-- sign up -->
+    <string name="confirm_password">Confirm password</string>
+    <!-- books -->
+    <string name="search">Search...</string>
+    <!-- bottom navigation menu -->
+    <string name="ic_books">Books</string>
+    <string name="ic_profile">Profile</string>
 </resources>
