@@ -2,6 +2,11 @@
 
 - convert activity main to linear layout
 
+# validate
+
+- books fragment xml tree
+- notes fragment xml tree
+
 # topics
 
 - styles
@@ -9,4 +14,4 @@
 
 # questions
 
-- Image view for icons?
+- image view for icons (or button)?
