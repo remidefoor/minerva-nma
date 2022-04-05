@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/logInFragment"
-        android:name="be.howest.defoor.remi.minerva.LogInFragment"
+        android:name="be.howest.defoor.remi.minerva.fragments.LogInFragment"
         android:label="LogInFragment"
         tools:layout="@layout/log_in_fragment" >
         <action
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/signUpFragment"
-        android:name="be.howest.defoor.remi.minerva.SignUpFragment"
+        android:name="be.howest.defoor.remi.minerva.fragments.SignUpFragment"
         android:label="SignUpFragment"
         tools:layout="@layout/activity_main" >
         <action

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/sand"
+    android:orientation="vertical"
+    tools:context=".fragments.BooksFragment" >
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="@dimen/form_elem_width"
+        android:layout_height="@dimen/form_elem_height">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/search"
+            android:background="@color/sand_accent"
+            android:textColor="@color/navy_blue"
+            android:textColorHint="@color/navy_blue" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/books_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</FrameLayout>
