@@ -7,5 +7,5 @@ data class Book(
     val img: ImageView,
     val title: String,
     val authors: List<String>,
-    val notes: List<String>
+    val notes: List<Note>
 )
