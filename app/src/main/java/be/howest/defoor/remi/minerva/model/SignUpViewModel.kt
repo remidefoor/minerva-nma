@@ -1,4 +1,4 @@
-package be.howest.defoor.remi.minerva
+package be.howest.defoor.remi.minerva.model
 
 import androidx.lifecycle.ViewModel
 
