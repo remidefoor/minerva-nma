@@ -5,6 +5,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import be.howest.defoor.remi.minerva.R
+import be.howest.defoor.remi.minerva.data.DataSource
+import be.howest.defoor.remi.minerva.model.Note
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -27,6 +32,12 @@ class NotesFragment : Fragment() {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
         }
+
+        TODO("boilerplate code")
+//        val notes: List<Note> = DataSource().loadNotes()
+//        val recyclerView: RecyclerView = findViewById<RecyclerView>(R.id.notes_recycler_view)
+//        recyclerView.layoutManager = LinearLayoutManager(this)
+//        recyclerView.setHasFixedSize(true)
     }
 
     override fun onCreateView(

@@ -33,10 +33,13 @@ class BooksFragment : Fragment() {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
         }
-        val books: List<Book> = DataSource().loadBooks()
-//        TODO implement
-//        val recyclerView: RecyclerView = findViewById<Recycl
-    //        )
+        TODO("boilerplate code")
+//        val books: List<Book> = DataSource().loadBooks()
+
+//        val recyclerView: RecyclerView = findViewById<RecyclerView>(R.id.books_recycler_view) // TODO refactor
+//        recyclerView.layoutManager = LinearLayoutManager(this)
+//        recyclerView.setHasFixedSize(true)
+//        recyclerView.adapter = BookAdapter(this, books)
     }
 
     override fun onCreateView(
