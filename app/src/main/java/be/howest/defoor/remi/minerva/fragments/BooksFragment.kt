@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import be.howest.defoor.remi.minerva.R
+import be.howest.defoor.remi.minerva.adapter.BookAdapter
 import be.howest.defoor.remi.minerva.data.DataSource
 import be.howest.defoor.remi.minerva.model.Book
 
@@ -34,9 +35,8 @@ class BooksFragment : Fragment() {
         }
         val books: List<Book> = DataSource().loadBooks()
 //        TODO implement
-//        val recyclerView: RecyclerView = findViewById<RecyclerView>(R.id.books_recycler_view) // TODO refactor
-//        recyclerView.layoutManager = LinearLayoutManager(this)
-//        recyclerView.setHasFixedSize(true)
+//        val recyclerView: RecyclerView = findViewById<Recycl
+    //        )
     }
 
     override fun onCreateView(
