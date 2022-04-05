@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import be.howest.defoor.remi.minerva.R
+import be.howest.defoor.remi.minerva.adapter.NoteAdapter
 import be.howest.defoor.remi.minerva.data.DataSource
 import be.howest.defoor.remi.minerva.model.Note
 
@@ -38,6 +39,7 @@ class NotesFragment : Fragment() {
 //        val recyclerView: RecyclerView = findViewById<RecyclerView>(R.id.notes_recycler_view)
 //        recyclerView.layoutManager = LinearLayoutManager(this)
 //        recyclerView.setHasFixedSize(true)
+//        recyclerView.adapter = NoteAdapter(this, notes)
     }
 
     override fun onCreateView(
