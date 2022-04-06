@@ -6,12 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import be.howest.defoor.remi.minerva.R
 import be.howest.defoor.remi.minerva.databinding.FragmentBooksBinding
-import be.howest.defoor.remi.minerva.model.BookViewModel
-import be.howest.defoor.remi.minerva.model.LogInViewModel
+import be.howest.defoor.remi.minerva.model.view_models.BookViewModel
 
 class BooksFragment : Fragment() {
 
@@ -28,7 +26,7 @@ class BooksFragment : Fragment() {
 //        val recyclerView: RecyclerView = findViewById<RecyclerView>(R.id.books_recycler_view)
 //        recyclerView.layoutManager = LinearLayoutManager(this)
 //        recyclerView.setHasFixedSize(true)
-//        recyclerView.adapter = BookAdapter(this, books)
+//        recyclerView.adapters = BookAdapter(this, books)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

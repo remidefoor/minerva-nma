@@ -6,7 +6,7 @@
     <data>
         <variable
             name="viewModel"
-            type="be.howest.defoor.remi.minerva.model.LogInViewModel" />
+            type="be.howest.defoor.remi.minerva.model.view_models.SignUpViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -16,7 +16,7 @@
         tools:context=".fragments.LogInFragment">
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/log_in_input_email_wrapper"
+            android:id="@+id/sign_up_input_email_wrapper"
             android:layout_width="@dimen/form_elem_width"
             android:layout_height="@dimen/form_elem_height"
             app:layout_constraintEnd_toEndOf="parent"
@@ -25,7 +25,7 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/log_in_input_email"
+                android:id="@+id/sign_up_input_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/sand_accent"
@@ -36,16 +36,16 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/log_in_input_password_wrapper"
+            android:id="@+id/sign_up_input_password_wrapper"
             android:layout_width="@dimen/form_elem_width"
             android:layout_height="@dimen/form_elem_height"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/log_in_input_email_wrapper">
+            app:layout_constraintTop_toBottomOf="@+id/sign_up_input_email_wrapper">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/log_in_input_password"
+                android:id="@+id/sign_up_input_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/sand_accent"
@@ -55,28 +55,48 @@
                 android:textColorHint="@color/navy_blue" />
         </com.google.android.material.textfield.TextInputLayout>
 
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/sign_up_input_password_confirmation_wrapper"
+            android:layout_width="@dimen/form_elem_width"
+            android:layout_height="@dimen/form_elem_height"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/sign_up_input_password_wrapper">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/sign_up_input_password_confirmation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/sand_accent"
+                android:hint="@string/confirm_password"
+                android:inputType="textPassword"
+                android:textColor="@color/navy_blue"
+                android:textColorHint="@color/navy_blue" />
+        </com.google.android.material.textfield.TextInputLayout>
+
         <Button
-            android:id="@+id/log_in_log_in"
+            android:id="@+id/sign_up_sign_up"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/form_elem_height"
             android:backgroundTint="@color/sand_accent"
-            android:text="@string/log_in"
+            android:text="@string/sign_up"
             android:textAllCaps="false"
             android:textColor="@color/navy_blue"
             app:cornerRadius="@dimen/corner_radius"
-            app:layout_constraintEnd_toEndOf="@+id/log_in_input_password_wrapper"
-            app:layout_constraintTop_toBottomOf="@+id/log_in_input_password_wrapper" />
+            app:layout_constraintEnd_toEndOf="@+id/sign_up_input_password_confirmation_wrapper"
+            app:layout_constraintTop_toBottomOf="@+id/sign_up_input_password_confirmation_wrapper" />
 
         <TextView
-            android:id="@+id/log_in_sign_up"
+            android:id="@+id/sign_up_log_in"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/sign_up"
+            android:text="@string/log_in"
             android:textColor="@color/navy_blue"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/log_in_log_in" />
+            app:layout_constraintTop_toBottomOf="@+id/sign_up_sign_up" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

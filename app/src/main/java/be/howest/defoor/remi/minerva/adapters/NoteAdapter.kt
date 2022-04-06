@@ -1,4 +1,4 @@
-package be.howest.defoor.remi.minerva.adapter
+package be.howest.defoor.remi.minerva.adapters
 
 import android.view.LayoutInflater
 import android.view.View

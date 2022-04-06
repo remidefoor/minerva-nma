@@ -6,15 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import be.howest.defoor.remi.minerva.R
-import be.howest.defoor.remi.minerva.adapter.NoteAdapter
-import be.howest.defoor.remi.minerva.data.DataSource
 import be.howest.defoor.remi.minerva.databinding.FragmentNotesBinding
-import be.howest.defoor.remi.minerva.model.BookViewModel
-import be.howest.defoor.remi.minerva.model.LogInViewModel
-import be.howest.defoor.remi.minerva.model.Note
+import be.howest.defoor.remi.minerva.model.view_models.BookViewModel
 
 class NotesFragment : Fragment() {
 
@@ -31,7 +25,7 @@ class NotesFragment : Fragment() {
 //        val recyclerView: RecyclerView = findViewById<RecyclerView>(R.id.notes_recycler_view)
 //        recyclerView.layoutManager = LinearLayoutManager(this)
 //        recyclerView.setHasFixedSize(true)
-//        recyclerView.adapter = NoteAdapter(this, notes)
+//        recyclerView.adapters = NoteAdapter(this, notes)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

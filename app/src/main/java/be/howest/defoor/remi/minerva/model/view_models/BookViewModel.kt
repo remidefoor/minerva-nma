@@ -1,4 +1,4 @@
-package be.howest.defoor.remi.minerva.model
+package be.howest.defoor.remi.minerva.model.view_models
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
