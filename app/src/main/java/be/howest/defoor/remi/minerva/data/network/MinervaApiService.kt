@@ -1,9 +1,11 @@
 package be.howest.defoor.remi.minerva.data.network
 
+import be.howest.defoor.remi.minerva.model.Book
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
+import retrofit2.http.GET
 
 private const val MINERVA_BASE_URL = "https://laravel.minerva.com/api"
 
@@ -15,3 +17,8 @@ private val retrofit = Retrofit.Builder()
     .addConverterFactory(MoshiConverterFactory.create(moshi))
     .baseUrl(MINERVA_BASE_URL)
     .build()
+
+interface MinervaApiService {
+    @GET("/users/:userId/books")
+    suspend fun getUserBooks(): List<Book>
+}
