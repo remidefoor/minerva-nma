@@ -1,4 +1,4 @@
-package be.howest.defoor.remi.minerva.data.network
+package be.howest.defoor.remi.minerva.network
 
 import be.howest.defoor.remi.minerva.model.Book
 import com.squareup.moshi.Moshi
