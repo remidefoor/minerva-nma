@@ -6,6 +6,7 @@
 
 - books fragment xml tree
 - notes fragment xml tree
+- project structure
 
 # topics
 
