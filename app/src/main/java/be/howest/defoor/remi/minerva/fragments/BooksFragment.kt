@@ -22,7 +22,7 @@ class BooksFragment : Fragment() {
     ): View? {
         return inflater.inflate(R.layout.fragment_books, container, false)
         TODO("boilerplate code")
-//        val books: List<BookDetail> = DataSource().loadBooks()
+//        val books: List<Book> = DataSource().loadBooks()
 //        val recyclerView: RecyclerView = findViewById<RecyclerView>(R.id.books_recycler_view)
 //        recyclerView.layoutManager = LinearLayoutManager(this)
 //        recyclerView.setHasFixedSize(true)

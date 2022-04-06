@@ -1,5 +1,10 @@
 package be.howest.defoor.remi.minerva.model
 
-data class Book (
-    val isbn: String
+import android.widget.ImageView
+
+data class Book(
+    val isbn: String,
+    val imageUrl: String,
+    val title: String,
+    val authors: List<String>
 )
