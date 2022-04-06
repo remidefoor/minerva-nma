@@ -11,10 +11,6 @@ import be.howest.defoor.remi.minerva.model.LogInViewModel
 
 class LogInFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = LogInFragment()
-    }
-
     private lateinit var viewModel: LogInViewModel
 
     override fun onCreateView(
@@ -22,12 +18,6 @@ class LogInFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         return inflater.inflate(R.layout.log_in_fragment, container, false)
-    }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(LogInViewModel::class.java)
-        // TODO: Use the ViewModel
     }
 
 }
