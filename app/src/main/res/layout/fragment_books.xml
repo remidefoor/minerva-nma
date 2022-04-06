@@ -1,38 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/sand"
-    android:orientation="vertical"
-    tools:context=".fragments.BooksFragment" >
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/books_input_search_wrapper"
-        android:layout_width="@dimen/form_elem_width"
-        android:layout_height="@dimen/form_elem_height">
+    <data>
+        <variable
+            name="model"
+            type="be.howest.defoor.remi.minerva.model.BookViewModel" />
+    </data>
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/books_input_search"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/sand_accent"
-            android:hint="@string/placeholder_search"
-            android:textColor="@color/navy_blue"
-            android:textColorHint="@color/navy_blue" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/books_recycler_view"
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="match_parent"
+        android:background="@color/sand"
+        android:orientation="vertical"
+        tools:context=".fragments.BooksFragment">
 
-    </androidx.recyclerview.widget.RecyclerView>
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/books_input_search_wrapper"
+            android:layout_width="@dimen/form_elem_width"
+            android:layout_height="@dimen/form_elem_height">
 
-    <ImageView
-        android:id="@+id/books_ic_add_box"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_add_box_dark" />
-</FrameLayout>
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/books_input_search"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/sand_accent"
+                android:hint="@string/placeholder_search"
+                android:textColor="@color/navy_blue"
+                android:textColorHint="@color/navy_blue" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/books_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </androidx.recyclerview.widget.RecyclerView>
+
+        <ImageView
+            android:id="@+id/books_ic_add_box"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_add_box_dark" />
+    </FrameLayout>
+</layout>
