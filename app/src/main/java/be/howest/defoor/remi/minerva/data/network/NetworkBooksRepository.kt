@@ -1,5 +1,6 @@
-package be.howest.defoor.remi.minerva.data
+package be.howest.defoor.remi.minerva.data.network
 
+import be.howest.defoor.remi.minerva.data.BooksRepository
 import be.howest.defoor.remi.minerva.model.Book
 
 class NetworkBooksRepository: BooksRepository {
