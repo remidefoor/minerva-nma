@@ -45,10 +45,6 @@ class BooksFragment : Fragment() {
         findNavController().navigate(action)
     }
 
-    fun filterBooks() {
-        TODO("implement")
-    }
-
     override fun onDestroyView() {
         super.onDestroyView()
         binding = null
