@@ -19,6 +19,12 @@ private val retrofit = Retrofit.Builder()
     .build()
 
 interface MinervaApiService {
+
     @GET("/users/:userId/books")
     suspend fun getUserBooks(): List<Book>
+
+}
+
+object MinervaApi {
+    val retrofitService: MinervaApiService by lazy { retrofit.create(MinervaApiService::class.java) }
 }
