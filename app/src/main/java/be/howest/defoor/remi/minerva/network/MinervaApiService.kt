@@ -14,11 +14,11 @@ import retrofit2.http.Path
 
 private const val BASE_URL = "https://laravel.minerva.com/api"
 
-private val moshi = Moshi.Builder()
+private val moshi: Moshi = Moshi.Builder()
     .add(KotlinJsonAdapterFactory())
     .build()
 
-private val retrofit = Retrofit.Builder()
+private val retrofit: Retrofit = Retrofit.Builder()
     .addConverterFactory(MoshiConverterFactory.create(moshi))
     .baseUrl(BASE_URL)
     .build()
