@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 class LogInViewModel : ViewModel() {
-
+    
     private val _email: MutableLiveData<String> = MutableLiveData<String>()
     val email: LiveData<String>
         get() = _email
@@ -26,5 +26,10 @@ class LogInViewModel : ViewModel() {
     fun setPassword(password: String) {
         _password.value = password
     }
-    
+
+    fun resetCredentials() {
+        _email.value = ""
+        _password.value = ""
+    }
+
 }
