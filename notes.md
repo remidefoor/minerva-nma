@@ -18,3 +18,4 @@
 - image view for icons (or button)?
 - view model to share isbn and mutable live data?
 - view model for log in & sign up?
+- return type function returning nothing?
