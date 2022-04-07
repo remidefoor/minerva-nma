@@ -7,6 +7,10 @@
         <variable
             name="model"
             type="be.howest.defoor.remi.minerva.model.view_models.LogInViewModel" />
+
+        <variable
+            name="fragment"
+            type="be.howest.defoor.remi.minerva.fragments.LogInFragment" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -65,7 +69,8 @@
             android:textColor="@color/navy_blue"
             app:cornerRadius="@dimen/corner_radius"
             app:layout_constraintEnd_toEndOf="@+id/log_in_input_password_wrapper"
-            app:layout_constraintTop_toBottomOf="@+id/log_in_input_password_wrapper" />
+            app:layout_constraintTop_toBottomOf="@+id/log_in_input_password_wrapper"
+            android:onClick="@{() -> fragment.navigateToMainActivity()}"/>
 
         <TextView
             android:id="@+id/log_in_sign_up"
@@ -77,6 +82,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/log_in_log_in" />
+            app:layout_constraintTop_toBottomOf="@+id/log_in_log_in"
+            android:onClick="@{() -> fragment.navigateToSignUpFragment()}"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

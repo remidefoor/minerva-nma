@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.NavDirections
 import androidx.navigation.fragment.findNavController
 import be.howest.defoor.remi.minerva.R
 import be.howest.defoor.remi.minerva.databinding.FragmentBooksBinding
@@ -41,7 +42,7 @@ class BooksFragment : Fragment() {
     }
 
     fun navigateToNotes() {
-        val action = BooksFragmentDirections.actionBooksFragmentToNotesFragment()
+        val action: NavDirections = BooksFragmentDirections.actionBooksFragmentToNotesFragment()
         findNavController().navigate(action)
     }
 
