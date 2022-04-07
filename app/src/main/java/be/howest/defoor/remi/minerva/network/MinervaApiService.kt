@@ -12,7 +12,7 @@ import retrofit2.http.GET
 import retrofit2.http.POST
 import retrofit2.http.Path
 
-private const val MINERVA_BASE_URL = "https://laravel.minerva.com/api"
+private const val BASE_URL = "https://laravel.minerva.com/api"
 
 private val moshi = Moshi.Builder()
     .add(KotlinJsonAdapterFactory())
@@ -20,7 +20,7 @@ private val moshi = Moshi.Builder()
 
 private val retrofit = Retrofit.Builder()
     .addConverterFactory(MoshiConverterFactory.create(moshi))
-    .baseUrl(MINERVA_BASE_URL)
+    .baseUrl(BASE_URL)
     .build()
 
 interface MinervaApiService {
