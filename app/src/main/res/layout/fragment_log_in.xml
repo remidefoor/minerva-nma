@@ -67,10 +67,10 @@
             android:text="@string/log_in"
             android:textAllCaps="false"
             android:textColor="@color/navy_blue"
+            android:onClick="@{() -> fragment.logIn()}"
             app:cornerRadius="@dimen/corner_radius"
             app:layout_constraintEnd_toEndOf="@+id/log_in_input_password_wrapper"
-            app:layout_constraintTop_toBottomOf="@+id/log_in_input_password_wrapper"
-            android:onClick="@{() -> fragment.navigateToMainActivity()}"/>
+            app:layout_constraintTop_toBottomOf="@+id/log_in_input_password_wrapper"/>
 
         <TextView
             android:id="@+id/log_in_sign_up"
@@ -78,11 +78,11 @@
             android:layout_height="wrap_content"
             android:text="@string/sign_up"
             android:textColor="@color/navy_blue"
+            android:onClick="@{() -> fragment.navigateToSignUpFragment()}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/log_in_log_in"
-            android:onClick="@{() -> fragment.navigateToSignUpFragment()}"/>
+            app:layout_constraintTop_toBottomOf="@+id/log_in_log_in"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -37,18 +37,18 @@ class LogInFragment : Fragment() {
         }
     }
 
-    fun navigateToSignUpFragment() {
-        val action: NavDirections = LogInFragmentDirections.actionLogInFragmentToSignUpFragment()
-    }
-
     fun logIn() {
         navigateToMainActivity()
         TODO("implement")
     }
 
-    fun navigateToMainActivity() {
+    private fun navigateToMainActivity() {
         val intent: Intent = Intent(activity, MainActivity::class.java)
         startActivity(intent)
+    }
+
+    fun navigateToSignUpFragment() {
+        val action: NavDirections = LogInFragmentDirections.actionLogInFragmentToSignUpFragment()
     }
 
     override fun onDestroyView() {
