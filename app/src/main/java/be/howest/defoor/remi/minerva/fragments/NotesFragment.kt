@@ -19,7 +19,9 @@ class NotesFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_notes, container, false)
+        val fragmentBinding: FragmentNotesBinding = FragmentNotesBinding.inflate(inflater, container, false)
+        binding = fragmentBinding
+        return fragmentBinding.root
         TODO("boilerplate code")
 //        val notes: List<Note> = DataSource().loadNotes()
 //        val recyclerView: RecyclerView = findViewById<RecyclerView>(R.id.notes_recycler_view)
@@ -32,7 +34,7 @@ class NotesFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding?.apply {
-            viewModel = sharedViewModel
+            model = sharedViewModel
             lifecycleOwner = viewLifecycleOwner
         }
     }

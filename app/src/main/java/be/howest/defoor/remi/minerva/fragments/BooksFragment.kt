@@ -20,7 +20,9 @@ class BooksFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_books, container, false)
+        val fragmentBinding: FragmentBooksBinding = FragmentBooksBinding.inflate(inflater, container, false)
+        binding = fragmentBinding
+        return fragmentBinding.root
         TODO("boilerplate code")
 //        val books: List<Book> = DataSource().loadBooks()
 //        val recyclerView: RecyclerView = findViewById<RecyclerView>(R.id.books_recycler_view)
@@ -33,7 +35,7 @@ class BooksFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding?.apply {
-            viewModel = sharedViewModel
+            model = sharedViewModel
             lifecycleOwner = viewLifecycleOwner
         }
     }
