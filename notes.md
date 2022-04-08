@@ -2,6 +2,12 @@
 
 - convert activity main to linear layout
 - parse response google books api
+- max width book title books page
+- padding books recycler view (item decoration)
+- replace mock data:
+  - books recycler view
+  - notes recycler view
+
 
 # validate
 

@@ -4,7 +4,7 @@ import android.widget.ImageView
 
 data class Book(
     val isbn: String,
-    val imageUrl: String,
+    val imageUrl: Int,
     val title: String,
     val authors: List<String>
 )

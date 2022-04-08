@@ -7,8 +7,8 @@
     <fragment
         android:id="@+id/booksFragment"
         android:name="be.howest.defoor.remi.minerva.fragments.BooksFragment"
-        android:label="fragment_books"
-        tools:layout="@layout/fragment_books" >
+        android:label="Books"
+        tools:layout="@layout/fragment_books">
         <action
             android:id="@+id/action_booksFragment_to_notesFragment"
             app:destination="@id/notesFragment" />

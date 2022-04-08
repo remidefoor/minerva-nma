@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical">
 
     <ImageView
@@ -11,8 +11,9 @@
         android:layout_width="@dimen/img_width"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:scaleType="fitXY"
         android:adjustViewBounds="true"
+        android:scaleType="fitXY"
+        android:layout_marginTop="50dp"
         tools:srcCompat="@drawable/harry_potter_and_the_philosopher_s_stone_book_cover" />
 
     <TextView
@@ -21,8 +22,6 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
-        android:layout_marginBottom="50dp"
         android:textColor="@color/navy_blue"
         tools:text="Harry Potter and the Philosopher's Stone" />
-
 </LinearLayout>

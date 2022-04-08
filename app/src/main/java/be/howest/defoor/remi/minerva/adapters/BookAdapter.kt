@@ -1,5 +1,6 @@
 package be.howest.defoor.remi.minerva.adapters
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import be.howest.defoor.remi.minerva.R
 import be.howest.defoor.remi.minerva.model.Book
 
-class BookAdapter(private val books: List<Book>) : RecyclerView.Adapter<BookAdapter.BookViewHolder>() {
+class BookAdapter(private val context: Context, private val books: List<Book>) : RecyclerView.Adapter<BookAdapter.BookViewHolder>() {
 
     class BookViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
         val imageView: ImageView = view.findViewById(R.id.book_cover)
@@ -24,7 +25,7 @@ class BookAdapter(private val books: List<Book>) : RecyclerView.Adapter<BookAdap
 
     override fun onBindViewHolder(holder: BookViewHolder, position: Int) {
         val book: Book = books[position]
-        // TODO("replace image")
+        holder.imageView.setImageResource(book.imageUrl)
         holder.textView.text = book.title
     }
 

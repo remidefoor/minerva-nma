@@ -10,38 +10,28 @@
     </data>
 
     <FrameLayout
+        android:id="@+id/books_frame_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/sand"
         android:orientation="vertical"
         tools:context=".fragments.BooksFragment">
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/books_input_search_wrapper"
-            android:layout_width="@dimen/form_elem_width"
-            android:layout_height="@dimen/form_elem_height">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/books_input_search"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/sand_accent"
-                android:hint="@string/placeholder_search"
-                android:textColor="@color/navy_blue"
-                android:textColorHint="@color/navy_blue" />
-        </com.google.android.material.textfield.TextInputLayout>
-
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/books_recycler_view"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-        </androidx.recyclerview.widget.RecyclerView>
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:paddingBottom="40dp"/>
 
         <ImageView
             android:id="@+id/books_ic_add_box"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"
             android:src="@drawable/ic_add_box_dark" />
+
     </FrameLayout>
 </layout>
