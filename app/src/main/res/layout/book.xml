@@ -9,7 +9,7 @@
 
     <ImageView
         android:id="@+id/book_cover"
-        android:layout_width="@dimen/img_width"
+        android:layout_width="@dimen/image_width"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="50dp"
