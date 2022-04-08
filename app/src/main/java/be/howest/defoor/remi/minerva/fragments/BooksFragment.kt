@@ -49,8 +49,8 @@ class BooksFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding?.apply {
-            model = sharedViewModel
             lifecycleOwner = viewLifecycleOwner
+            fragment = this@BooksFragment
         }
     }
 

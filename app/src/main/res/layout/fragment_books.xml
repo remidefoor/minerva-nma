@@ -5,8 +5,8 @@
 
     <data>
         <variable
-            name="model"
-            type="be.howest.defoor.remi.minerva.model.view_models.BookViewModel" />
+            name="fragment"
+            type="be.howest.defoor.remi.minerva.fragments.BooksFragment" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
