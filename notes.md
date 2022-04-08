@@ -19,3 +19,5 @@
 - view model to share isbn and mutable live data?
 - view model for log in & sign up?
 - return type function returning nothing?
+- coroutine in fragment?
+- object instead of individual properties in view models?

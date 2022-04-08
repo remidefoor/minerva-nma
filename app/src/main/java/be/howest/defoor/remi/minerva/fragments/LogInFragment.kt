@@ -11,7 +11,9 @@ import androidx.navigation.NavDirections
 import be.howest.defoor.remi.minerva.AuthActivity
 import be.howest.defoor.remi.minerva.MainActivity
 import be.howest.defoor.remi.minerva.databinding.FragmentLogInBinding
+import be.howest.defoor.remi.minerva.model.User
 import be.howest.defoor.remi.minerva.model.view_models.LogInViewModel
+import be.howest.defoor.remi.minerva.network.MinervaApi
 
 class LogInFragment : Fragment() {
 
@@ -38,7 +40,6 @@ class LogInFragment : Fragment() {
     }
 
     fun logIn() {
-        navigateToMainActivity()
         TODO("implement")
     }
 

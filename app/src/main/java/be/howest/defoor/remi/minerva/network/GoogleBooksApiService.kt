@@ -8,7 +8,7 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.GET
 import retrofit2.http.Path
 
-private const val BASE_URL = "https://www.googleapis.com/books/v1/volumes?q=isbn:"
+private const val BASE_URL = "https://www.googleapis.com/books/v1/"
 
 private val moshi: Moshi = Moshi.Builder()
     .add(KotlinJsonAdapterFactory())
@@ -21,7 +21,7 @@ private val retrofit: Retrofit = Retrofit.Builder()
 
 interface GoogleBooksApiService {
 
-    @GET("{isbn}")
+    @GET("volumes?q=isbn:{isbn}")
     suspend fun getBook(@Path("isbn") isbn: String): List<Book>
 
 }
