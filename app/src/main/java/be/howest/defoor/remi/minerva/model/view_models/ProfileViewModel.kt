@@ -16,7 +16,7 @@ class ProfileViewModel : ViewModel() {
     }
 
     init {
-        _user.value = getUser()
+        // _user.value = getUser()
     }
 
     private fun getUser(): User {

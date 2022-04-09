@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import be.howest.defoor.remi.minerva.R
 import be.howest.defoor.remi.minerva.model.Note
 
-class NoteAdapter(private val context: Context, private val notes: List<Note>): RecyclerView.Adapter<NoteAdapter.NoteViewHolder>() {
+class NoteAdapter(private val notes: List<Note>): RecyclerView.Adapter<NoteAdapter.NoteViewHolder>() {
     class NoteViewHolder(private val view: View): RecyclerView.ViewHolder(view) {
         val textView: TextView = view.findViewById(R.id.note_note)
     }

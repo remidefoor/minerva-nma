@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.NavDirections
@@ -39,7 +40,9 @@ class BooksFragment : Fragment() {
         val recyclerView: RecyclerView = fragmentBinding.booksRecyclerView
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
         recyclerView.setHasFixedSize(true)
-        recyclerView.adapter = BookAdapter(requireContext(), mockData)
+        recyclerView.adapter = BookAdapter(mockData) {
+            Toast.makeText(requireContext(), it, Toast.LENGTH_SHORT).show()
+        }
 
         binding = fragmentBinding
         return fragmentBinding.root

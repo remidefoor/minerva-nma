@@ -1,38 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/book_linear_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
 
-    <data>
-        <variable
-            name="fragment"
-            type="be.howest.defoor.remi.minerva.fragments.BooksFragment" />
-    </data>
-
-    <LinearLayout
-        android:id="@+id/book_linear_layout"
-        android:layout_width="match_parent"
+    <ImageView
+        android:id="@+id/book_cover"
+        android:layout_width="@dimen/image_width"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_gravity="center"
+        android:layout_marginTop="50dp"
+        android:adjustViewBounds="true"
+        android:scaleType="fitXY"
+        tools:srcCompat="@drawable/harry_potter_and_the_philosopher_s_stone_book_cover" />
 
-        <ImageView
-            android:id="@+id/book_cover"
-            android:layout_width="@dimen/image_width"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="50dp"
-            android:adjustViewBounds="true"
-            android:scaleType="fitXY"
-            android:onClick="@{() -> fragment.navigateToNotes()}"
-            tools:srcCompat="@drawable/harry_potter_and_the_philosopher_s_stone_book_cover" />
-
-        <TextView
-            android:id="@+id/book_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="20dp"
-            android:textColor="@color/navy_blue"
-            tools:text="Harry Potter and the Philosopher's Stone" />
-    </LinearLayout>
-</layout>
+    <TextView
+        android:id="@+id/book_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:textColor="@color/navy_blue"
+        tools:text="Harry Potter and the Philosopher's Stone" />
+</LinearLayout>

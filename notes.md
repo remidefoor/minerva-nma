@@ -27,4 +27,4 @@
 - return type function returning nothing?
 - coroutine in fragment?
 - object instead of individual properties in view models?
-- separate activity for
+- separate activity for adding books?

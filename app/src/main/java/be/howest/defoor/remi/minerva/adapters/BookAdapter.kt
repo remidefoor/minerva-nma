@@ -10,17 +10,31 @@ import androidx.recyclerview.widget.RecyclerView
 import be.howest.defoor.remi.minerva.R
 import be.howest.defoor.remi.minerva.model.Book
 
-class BookAdapter(private val context: Context, private val books: List<Book>) : RecyclerView.Adapter<BookAdapter.BookViewHolder>() {
+class BookAdapter(
+    private val books: List<Book>,
+    private val bookClickListener: (String) -> Unit
+    ) : RecyclerView.Adapter<BookAdapter.BookViewHolder>() {
 
-    class BookViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
+    class BookViewHolder(
+        private val view: View,
+        clickAtPosition: (Int) -> Unit
+        ) : RecyclerView.ViewHolder(view) {
         val imageView: ImageView = view.findViewById(R.id.book_cover)
         val textView: TextView = view.findViewById(R.id.book_title)
+
+        init {
+            view.setOnClickListener {
+                clickAtPosition(adapterPosition)
+            }
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BookViewHolder {
         val adapterLayout: View = LayoutInflater.from(parent.context)
             .inflate(R.layout.book, parent, false)
-        return BookViewHolder(adapterLayout)
+        return BookViewHolder(adapterLayout) {
+            bookClickListener(books[it].title)
+        }
     }
 
     override fun onBindViewHolder(holder: BookViewHolder, position: Int) {

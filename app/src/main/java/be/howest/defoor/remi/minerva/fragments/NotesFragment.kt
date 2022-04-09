@@ -39,7 +39,7 @@ class NotesFragment : Fragment() {
         val recyclerView: RecyclerView = fragmentBinding.notesRecyclerView
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
         recyclerView.setHasFixedSize(true)
-        recyclerView.adapter = NoteAdapter(requireContext(), mockData)
+        recyclerView.adapter = NoteAdapter(mockData)
 
         binding = fragmentBinding
         return fragmentBinding.root
