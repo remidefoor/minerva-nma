@@ -33,13 +33,13 @@ class LogInFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding?.apply {
-            model = viewModel
             lifecycleOwner = viewLifecycleOwner
             fragment = this@LogInFragment
         }
     }
 
     fun logIn() {
+        navigateToMainActivity()
     }
 
     private fun navigateToMainActivity() {
