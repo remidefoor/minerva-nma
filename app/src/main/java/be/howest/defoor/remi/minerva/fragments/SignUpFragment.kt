@@ -32,8 +32,8 @@ class SignUpFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding?.apply {
-            model = viewModel
             lifecycleOwner = viewLifecycleOwner
+            fragment = this@SignUpFragment
         }
     }
 

@@ -3,24 +3,24 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/log_in_nav_graph"
-    app:startDestination="@id/logInFragment">
+    app:startDestination="@id/fragment_log_in">
 
     <fragment
-        android:id="@+id/logInFragment"
+        android:id="@+id/fragment_log_in"
         android:name="be.howest.defoor.remi.minerva.fragments.LogInFragment"
-        android:label="LogInFragment"
+        android:label="Log in"
         tools:layout="@layout/fragment_log_in">
         <action
             android:id="@+id/action_logInFragment_to_signUpFragment"
-            app:destination="@id/signUpFragment" />
+            app:destination="@id/fragment_sign_up" />
     </fragment>
     <fragment
-        android:id="@+id/signUpFragment"
+        android:id="@+id/fragment_sign_up"
         android:name="be.howest.defoor.remi.minerva.fragments.SignUpFragment"
-        android:label="SignUpFragment"
+        android:label="Sign up"
         tools:layout="@layout/fragment_sign_up">
         <action
             android:id="@+id/action_signUpFragment_to_logInFragment"
-            app:destination="@id/logInFragment" />
+            app:destination="@id/fragment_log_in" />
     </fragment>
 </navigation>
