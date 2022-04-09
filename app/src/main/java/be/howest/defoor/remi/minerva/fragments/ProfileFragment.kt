@@ -7,6 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.NavDirections
+import androidx.navigation.fragment.findNavController
 import be.howest.defoor.remi.minerva.AuthActivity
 import be.howest.defoor.remi.minerva.databinding.FragmentProfileBinding
 import be.howest.defoor.remi.minerva.model.view_models.ProfileViewModel
@@ -33,6 +35,11 @@ class ProfileFragment : Fragment() {
             lifecycleOwner = viewLifecycleOwner
             fragment = this@ProfileFragment
         }
+    }
+
+    private fun navigateToBooksFragment() {
+        val action: NavDirections = ProfileFragmentDirections.actionProfileFragmentToFragmentBooks()
+        findNavController().navigate(action)
     }
 
     fun logOff() {
