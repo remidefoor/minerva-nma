@@ -14,4 +14,7 @@
     <string name="ic_profile">Profile</string>
     <!-- notes -->
     <string name="placeholder_note">Note</string>
+    <!-- profile -->
+    <string name="label_account">Account:</string>
+    <string name="log_off">Log off</string>
 </resources>

@@ -12,6 +12,9 @@
         <action
             android:id="@+id/action_booksFragment_to_notesFragment"
             app:destination="@id/fragment_notes" />
+        <action
+            android:id="@+id/action_fragment_books_to_profileFragment"
+            app:destination="@id/fragment_profile" />
     </fragment>
     <fragment
         android:id="@+id/fragment_notes"
@@ -19,6 +22,15 @@
         tools:layout="@layout/fragment_notes">
         <action
             android:id="@+id/action_notesFragment_to_booksFragment"
+            app:destination="@id/fragment_books" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_profile"
+        android:name="be.howest.defoor.remi.minerva.fragments.ProfileFragment"
+        android:label="Profile"
+        tools:layout="@layout/profile_fragment">
+        <action
+            android:id="@+id/action_profileFragment_to_fragment_books"
             app:destination="@id/fragment_books" />
     </fragment>
 </navigation>

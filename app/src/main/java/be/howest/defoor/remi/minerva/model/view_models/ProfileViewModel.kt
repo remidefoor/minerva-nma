@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel
 import be.howest.defoor.remi.minerva.model.User
 
 class ProfileViewModel : ViewModel() {
-    
+
     private val _user: MutableLiveData<User> = MutableLiveData<User>()
     val user: LiveData<User>
         get() = _user
