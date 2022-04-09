@@ -43,6 +43,7 @@ class ProfileFragment : Fragment() {
     }
 
     fun logOff() {
+        // TODO implement
         navigateToAuthActivity()
     }
 
