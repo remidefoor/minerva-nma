@@ -8,24 +8,37 @@ import be.howest.defoor.remi.minerva.model.Note
 
 class BookViewModel : ViewModel() {
 
-    private val _book: MutableLiveData<Book> = MutableLiveData<Book>()
-    val book: LiveData<Book>
-        get() = _book
+    private lateinit var book: Book
+    private lateinit var notes: List<Note>
 
     fun setBook(book: Book) {
-        _book.value = book
+        this.book = book
+        setNotes()
     }
 
-    private val _notes: MutableLiveData<List<Note>> = MutableLiveData<List<Note>>()
-    val notes: LiveData<List<Note>>
-        get() = _notes
-
-    fun setNotes() {
-        _notes.value = getNotes()
+    fun getBook(): Book {
+        return book
     }
 
-    private fun getNotes(): List<Note> {
-        TODO("implement")
+    private fun setNotes() {
+        notes = getNotesFromMinervaApi()
+    }
+
+    fun getNotes(): List<Note> {
+        return notes
+    }
+
+    private fun getNotesFromMinervaApi(): List<Note> {
+        // TODO get notes from minerva api
+        return listOf(
+            Note(1, "Excited!!!"),
+            Note(2, "Perron 9 3/4"),
+            Note(3, "Ron and Hermione"),
+            Note(4, "Dumbledore"),
+            Note(5, "Hogwarts"),
+            Note(6, "The super long note to test the behavior of super long notes in my awesome application for taking notes on books."),
+            Note(7, "Voldemort")
+        )
     }
 
 }

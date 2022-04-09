@@ -1,6 +1,5 @@
 package be.howest.defoor.remi.minerva.adapters
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,7 +11,7 @@ import be.howest.defoor.remi.minerva.model.Book
 
 class BookAdapter(
     private val books: List<Book>,
-    private val bookClickListener: (String) -> Unit
+    private val bookClickListener: (Book) -> Unit
     ) : RecyclerView.Adapter<BookAdapter.BookViewHolder>() {
 
     class BookViewHolder(
@@ -33,7 +32,7 @@ class BookAdapter(
         val adapterLayout: View = LayoutInflater.from(parent.context)
             .inflate(R.layout.book, parent, false)
         return BookViewHolder(adapterLayout) {
-            bookClickListener(books[it].title)
+            bookClickListener(books[it])
         }
     }
 

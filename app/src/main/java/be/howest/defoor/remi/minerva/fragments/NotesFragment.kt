@@ -19,17 +19,6 @@ class NotesFragment : Fragment() {
     private var binding: FragmentNotesBinding? = null
     private val sharedViewModel: BookViewModel by activityViewModels()
 
-    // TODO remove
-    private val mockData: List<Note> = listOf(
-        Note(1, "Excited!!!"),
-        Note(2, "Perron 9 3/4"),
-        Note(3, "Ron and Hermione"),
-        Note(4, "Dumbledore"),
-        Note(5, "Hogwarts"),
-        Note(6, "The super long note to test the behavior of super long notes in my awesome application for taking notes on books."),
-        Note(7, "Voldemort")
-    )
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -39,7 +28,7 @@ class NotesFragment : Fragment() {
         val recyclerView: RecyclerView = fragmentBinding.notesRecyclerView
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
         recyclerView.setHasFixedSize(true)
-        recyclerView.adapter = NoteAdapter(mockData)
+        recyclerView.adapter = NoteAdapter(sharedViewModel.getNotes())
 
         binding = fragmentBinding
         return fragmentBinding.root

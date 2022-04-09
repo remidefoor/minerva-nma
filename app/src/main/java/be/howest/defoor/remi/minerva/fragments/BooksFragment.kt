@@ -40,12 +40,15 @@ class BooksFragment : Fragment() {
         val recyclerView: RecyclerView = fragmentBinding.booksRecyclerView
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
         recyclerView.setHasFixedSize(true)
-        recyclerView.adapter = BookAdapter(mockData) {
-            Toast.makeText(requireContext(), it, Toast.LENGTH_SHORT).show()
-        }
+        recyclerView.adapter = BookAdapter(mockData, this::handleClickOnBook)
 
         binding = fragmentBinding
         return fragmentBinding.root
+    }
+
+    private fun handleClickOnBook(book: Book) {
+        sharedViewModel.setBook(book)
+        navigateToNotes()
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -57,7 +60,7 @@ class BooksFragment : Fragment() {
         }
     }
 
-    fun navigateToNotes() {
+    private fun navigateToNotes() {
         val action: NavDirections = BooksFragmentDirections.actionBooksFragmentToNotesFragment()
         findNavController().navigate(action)
     }
