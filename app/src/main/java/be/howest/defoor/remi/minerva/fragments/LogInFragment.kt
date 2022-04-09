@@ -40,7 +40,6 @@ class LogInFragment : Fragment() {
     }
 
     fun logIn() {
-        TODO("implement")
     }
 
     private fun navigateToMainActivity() {

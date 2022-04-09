@@ -15,4 +15,12 @@ class ProfileViewModel : ViewModel() {
         _user.value = user
     }
 
+    init {
+        _user.value = getUser()
+    }
+
+    private fun getUser(): User {
+        TODO("implement")
+    }
+
 }

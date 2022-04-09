@@ -20,7 +20,7 @@ class NotesFragment : Fragment() {
     private val sharedViewModel: BookViewModel by activityViewModels()
 
     // TODO remove
-    private val mockData: List<Note> = listOf<Note>(
+    private val mockData: List<Note> = listOf(
         Note(1, "Excited!!!"),
         Note(2, "Perron 9 3/4"),
         Note(3, "Ron and Hermione"),

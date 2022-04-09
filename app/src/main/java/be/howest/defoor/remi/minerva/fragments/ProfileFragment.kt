@@ -1,19 +1,52 @@
 package be.howest.defoor.remi.minerva.fragments
 
+import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import be.howest.defoor.remi.minerva.R
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
+import be.howest.defoor.remi.minerva.AuthActivity
+import be.howest.defoor.remi.minerva.databinding.FragmentProfileBinding
+import be.howest.defoor.remi.minerva.model.view_models.ProfileViewModel
 
 class ProfileFragment : Fragment() {
+
+    private var binding: FragmentProfileBinding? = null
+    private val viewModel: ProfileViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.profile_fragment, container, false)
+        val fragmentBinding: FragmentProfileBinding = FragmentProfileBinding.inflate(inflater, container, false)
+        binding = fragmentBinding
+        return fragmentBinding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        binding?.apply {
+            model = viewModel
+            lifecycleOwner = viewLifecycleOwner
+            fragment = this@ProfileFragment
+        }
+    }
+
+    fun logOff() {
+        navigateToAuthActivity()
+    }
+
+    private fun navigateToAuthActivity() {
+        val intent: Intent = Intent(activity, AuthActivity::class.java)
+        startActivity(intent)
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        binding = null
     }
 
 }

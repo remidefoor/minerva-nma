@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="model"
+            type="be.howest.defoor.remi.minerva.model.view_models.ProfileViewModel" />
+        <variable
+            name="fragment"
+            type="be.howest.defoor.remi.minerva.fragments.ProfileFragment" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/profile_constraint_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/sand"
+        tools:context=".fragments.ProfileFragment">
+
+        <TextView
+            android:id="@+id/profile_label_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/label_account"
+            android:textColor="@color/navy_blue"
+            app:layout_constraintStart_toStartOf="@+id/profile_email"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/profile_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{model.user.email}"
+            android:textColor="@color/navy_blue"
+            app:layout_constraintStart_toStartOf="@+id/profile_button_og_off"
+            app:layout_constraintTop_toBottomOf="@+id/profile_label_email"
+            tools:text="remi.defoor@student.howest.be" />
+
+        <Button
+            android:id="@+id/profile_button_og_off"
+            android:layout_width="@dimen/form_elem_width"
+            android:layout_height="@dimen/form_elem_height"
+            android:backgroundTint="@color/sand_accent"
+            android:text="@string/log_off"
+            android:textAllCaps="false"
+            android:textColor="@color/navy_blue"
+            android:onClick="@{() -> fragment.logOff()}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/profile_email" />
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/profile_bottom_nav_menu"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/sand"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:menu="@menu/bottom_nav_menu" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
