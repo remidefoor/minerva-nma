@@ -21,6 +21,8 @@
 
 # questions
 
+- **Hoe wacht je op het resolven van een functie die een coroutine bevat?**
+
 - Nu gebruik ik voor icoontjes die knoppen zijn image views, is dit correct of bestaat er hier een geschikter element voor?
 
 - view models:
