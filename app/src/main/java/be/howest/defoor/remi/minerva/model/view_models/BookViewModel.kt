@@ -3,16 +3,36 @@ package be.howest.defoor.remi.minerva.model.view_models
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import be.howest.defoor.remi.minerva.R
 import be.howest.defoor.remi.minerva.model.Book
 import be.howest.defoor.remi.minerva.model.Note
+import be.howest.defoor.remi.minerva.network.MinervaApi
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.launch
+import java.lang.Exception
 
 class BookViewModel : ViewModel() {
 
-    private lateinit var book: Book
-    private lateinit var notes: List<Note>
+    private var book: Book
 
-    fun setBook(book: Book) {
-        this.book = book
+    private val _notes: MutableLiveData<List<Note>> = MutableLiveData<List<Note>>()
+    val notes: LiveData<List<Note>>
+        get() = _notes
+
+    private val _note: MutableLiveData<String> = MutableLiveData<String>()
+    val note: LiveData<String>
+        get() = _note
+
+    init {
+        // TODO remove hardcoded value book
+        book = Book("9789076174105", R.drawable.harry_potter_and_the_philosopher_s_stone_book_cover, "Harry Potter en de steen der wijzen", listOf("Joanne Kathleen Rowling"))
+        _notes.value = emptyList()
+        _note.value = ""
+    }
+
+    fun setBook(newBook: Book) {
+        this.book = newBook
         setNotes()
     }
 
@@ -21,24 +41,21 @@ class BookViewModel : ViewModel() {
     }
 
     private fun setNotes() {
-        notes = getNotesFromMinervaApi()
+        viewModelScope.launch {
+            try {
+                _notes.value = MinervaApi.retrofitService.getNotes(1, book.isbn)
+            } catch (ex: Exception) {
+                // TODO handle exceptions
+            }
+        }
     }
 
-    fun getNotes(): List<Note> {
-        return notes
+    private fun setNote(note: String) {
+        _note.value = note
     }
 
-    private fun getNotesFromMinervaApi(): List<Note> {
-        // TODO get notes from minerva api
-        return listOf(
-            Note(1, "Excited!!!"),
-            Note(2, "Perron 9 3/4"),
-            Note(3, "Ron and Hermione"),
-            Note(4, "Dumbledore"),
-            Note(5, "Hogwarts"),
-            Note(6, "The super long note to test the behavior of super long notes in my awesome application for taking notes on books."),
-            Note(7, "Voldemort")
-        )
+    private fun clearNote() {
+        _note.value = ""
     }
 
 }

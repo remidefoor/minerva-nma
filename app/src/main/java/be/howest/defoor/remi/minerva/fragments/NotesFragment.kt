@@ -28,18 +28,27 @@ class NotesFragment : Fragment() {
         val recyclerView: RecyclerView = fragmentBinding.notesRecyclerView
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
         recyclerView.setHasFixedSize(true)
-        recyclerView.adapter = NoteAdapter(sharedViewModel.getNotes())
+        recyclerView.adapter = NoteAdapter(emptyList())
 
         binding = fragmentBinding
         return fragmentBinding.root
+    }
+
+    fun addNote() {
+        /**
+         * TODO
+         * post note
+         * add note to notes
+         * update recycler view
+         */
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         binding?.apply {
-            model = sharedViewModel
             lifecycleOwner = viewLifecycleOwner
+            fragment = this@NotesFragment
         }
     }
 

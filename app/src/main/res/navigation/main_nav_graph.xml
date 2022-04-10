@@ -19,6 +19,7 @@
     <fragment
         android:id="@+id/fragment_notes"
         android:name="be.howest.defoor.remi.minerva.fragments.NotesFragment"
+        android:label="Notes"
         tools:layout="@layout/fragment_notes">
         <action
             android:id="@+id/action_notesFragment_to_booksFragment"

@@ -5,8 +5,8 @@
 
     <data>
         <variable
-            name="model"
-            type="be.howest.defoor.remi.minerva.model.view_models.BookViewModel" />
+            name="fragment"
+            type="be.howest.defoor.remi.minerva.fragments.NotesFragment" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -67,7 +67,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_weight="1"
-                android:src="@drawable/ic_send_dark" />
+                android:src="@drawable/ic_send_dark"
+                android:onClick="@{() -> fragment.addNote()}"/>
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
