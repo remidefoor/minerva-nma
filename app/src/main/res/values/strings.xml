@@ -17,4 +17,10 @@
     <!-- profile -->
     <string name="label_account">Account:</string>
     <string name="log_off">Log off</string>
+    <!-- add book -->
+    <string name="placeholder_isbn">ISBN</string>
+    <string name="button_search">Search</string>
+    <string name="label_book_title">Title:</string>
+    <string name="label_book_authors">Authors:</string>
+    <string name="button_add">Add</string>
 </resources>

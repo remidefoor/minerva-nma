@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="fragment"
+            type="be.howest.defoor.remi.minerva.fragments.AddBookFragment" />
+    </data>
+
+    <ScrollView
+        android:id="@+id/add_book_scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/sand"
+        android:padding="35dp">
+
+        <LinearLayout
+            android:id="@+id/add_book_containing_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            tools:context=".fragments.AddBookFragment">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/add_book_input_isbn_wrapper"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/form_elem_height"
+                android:layout_marginBottom="20dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/add_book_input_isbn"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/sand_accent"
+                    android:hint="@string/placeholder_isbn"
+                    android:textColor="@color/navy_blue"
+                    android:textColorHint="@color/navy_blue" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:id="@+id/add_book_button_search"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/form_elem_height"
+                android:background="@color/navy_blue"
+                android:text="@string/button_search"
+                android:textAllCaps="false"
+                android:textColor="@color/sand_accent"
+                android:layout_marginBottom="50dp" />
+
+            <ImageView
+                android:id="@+id/add_book_book_cover"
+                android:layout_width="@dimen/image_width"
+                android:layout_height="wrap_content"
+                android:scaleType="fitXY"
+                android:adjustViewBounds="true"
+                android:layout_marginBottom="10dp"
+                tools:src="@drawable/harry_potter_and_the_philosopher_s_stone_book_cover" />
+
+            <TextView
+                android:id="@+id/add_book_label_book_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/label_book_title"
+                android:textColor="@color/navy_blue"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/add_book_book_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/navy_blue"
+                android:layout_marginBottom="20dp"
+                tools:text="Harry Potter and the Philosopher's Stone" />
+
+            <TextView
+                android:id="@+id/add_book_label_book_authors"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/label_book_authors"
+                android:textColor="@color/navy_blue"
+                android:textStyle="bold" />
+
+            <ListView
+                android:id="@+id/add_book_book_authors"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp" />
+
+            <Button
+                android:id="@+id/add_book_button_add"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/form_elem_height"
+                android:background="@color/navy_blue"
+                android:text="@string/button_add"
+                android:textAllCaps="false"
+                android:textColor="@color/sand_accent" />
+        </LinearLayout>
+    </ScrollView>
+</layout>
