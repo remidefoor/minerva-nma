@@ -7,7 +7,7 @@
     <fragment
         android:id="@+id/fragment_books"
         android:name="be.howest.defoor.remi.minerva.fragments.BooksFragment"
-        android:label="Books"
+        android:label="@string/fragment_books_label"
         tools:layout="@layout/fragment_books">
         <action
             android:id="@+id/action_booksFragment_to_notesFragment"
@@ -15,6 +15,9 @@
         <action
             android:id="@+id/action_fragment_books_to_profileFragment"
             app:destination="@id/fragment_profile" />
+        <action
+            android:id="@+id/action_fragment_books_to_addBookFragment"
+            app:destination="@id/fragment_add_book" />
     </fragment>
     <fragment
         android:id="@+id/fragment_notes"
@@ -28,10 +31,19 @@
     <fragment
         android:id="@+id/fragment_profile"
         android:name="be.howest.defoor.remi.minerva.fragments.ProfileFragment"
-        android:label="Profile"
+        android:label="@string/fragment_profile_label"
         tools:layout="@layout/fragment_profile">
         <action
             android:id="@+id/action_profileFragment_to_fragment_books"
+            app:destination="@id/fragment_books" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_add_book"
+        android:name="be.howest.defoor.remi.minerva.fragments.AddBookFragment"
+        android:label="@string/fragment_add_book_label"
+        tools:layout="@layout/fragment_add_book">
+        <action
+            android:id="@+id/action_addBookFragment_to_fragment_books"
             app:destination="@id/fragment_books" />
     </fragment>
 </navigation>

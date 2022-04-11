@@ -23,4 +23,11 @@
     <string name="label_book_title">Title:</string>
     <string name="label_book_authors">Authors:</string>
     <string name="button_add">Add</string>
+    <!-- auth nav graph -->
+    <string name="fragment_log_in_label">Log in</string>
+    <string name="fragment_sign_up_label">Sign up</string>
+    <!-- main nav graph -->
+    <string name="fragment_books_label">Books</string>
+    <string name="fragment_add_book_label">Add book</string>
+    <string name="fragment_profile_label">Profile</string>
 </resources>

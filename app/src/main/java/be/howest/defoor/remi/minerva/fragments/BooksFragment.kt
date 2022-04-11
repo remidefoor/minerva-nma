@@ -65,6 +65,11 @@ class BooksFragment : Fragment() {
         findNavController().navigate(action)
     }
 
+    fun navigateToAddBook() {
+        val action: NavDirections = BooksFragmentDirections.actionFragmentBooksToAddBookFragment()
+        findNavController().navigate(action)
+    }
+
     override fun onDestroyView() {
         super.onDestroyView()
         binding = null

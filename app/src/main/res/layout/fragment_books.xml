@@ -42,7 +42,8 @@
                 android:layout_gravity="bottom|end"
                 android:layout_marginEnd="20dp"
                 android:layout_marginBottom="20dp"
-                android:src="@drawable/ic_add_box_dark" />
+                android:src="@drawable/ic_add_box_dark"
+                android:onClick="@{() -> fragment.navigateToAddBook()}" />
         </FrameLayout>
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
