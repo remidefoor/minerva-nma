@@ -4,9 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-        <variable
-            name="fragment"
-            type="be.howest.defoor.remi.minerva.fragments.AddBookFragment" />
     </data>
 
     <ScrollView

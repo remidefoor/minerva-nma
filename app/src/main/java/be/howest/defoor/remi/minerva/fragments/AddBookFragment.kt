@@ -35,4 +35,5 @@ class AddBookFragment : Fragment() {
         super.onDestroyView()
         binding = null
     }
+
 }
