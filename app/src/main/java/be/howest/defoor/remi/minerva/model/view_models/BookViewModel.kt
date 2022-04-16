@@ -14,6 +14,21 @@ import java.lang.Exception
 
 class BookViewModel : ViewModel() {
 
+    private var books: List<Book>
+
+    fun setBooks(books: List<Book>) {
+        this.books = books
+    }
+
+    fun getBooks(): List<Book> {
+        return books
+    }
+
+    fun getFilteredBooks(query: String): List<Book> {
+        return books.filter { book: Book -> book.title.contains(query, ignoreCase = true) }
+    }
+
+
     private var book: Book
 
     private val _notes: MutableLiveData<List<Note>> = MutableLiveData<List<Note>>()
@@ -25,7 +40,8 @@ class BookViewModel : ViewModel() {
         get() = _note
 
     init {
-        // TODO remove hardcoded value book
+        // TODO refactor
+        books = emptyList()
         book = Book("9789076174105", R.drawable.harry_potter_and_the_philosopher_s_stone_book_cover, "Harry Potter en de steen der wijzen", listOf("Joanne Kathleen Rowling"))
         _notes.value = emptyList()
         _note.value = ""

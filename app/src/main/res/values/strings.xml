@@ -8,7 +8,8 @@
     <!-- sign up -->
     <string name="confirm_password">Confirm password</string>
     <!-- books -->
-    <string name="placeholder_search">Search...</string>
+    <string name="title_search">Search</string>
+    <string name="placeholder_search">Search…</string>
     <!-- bottom navigation menu -->
     <string name="ic_books">Books</string>
     <string name="ic_profile">Profile</string>
