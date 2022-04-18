@@ -34,7 +34,9 @@
                 android:paddingTop="20dp"
                 android:paddingBottom="20dp"
                 android:clipToPadding="false"
-                android:layout_gravity="end" />
+                android:layout_gravity="end"
+                tools:listitem="@layout/note"/>
+
         </FrameLayout>
 
         <LinearLayout
