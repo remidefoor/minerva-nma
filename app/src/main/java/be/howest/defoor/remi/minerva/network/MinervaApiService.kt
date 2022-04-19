@@ -29,7 +29,7 @@ interface MinervaApiService {
     suspend fun postUser(@Body user: User) // TODO specify return type
 
     @POST("users/log-in")
-    suspend fun logIn(@Body user: User) // TODO specify return type
+    suspend fun logIn(@Body user: User): Int // TODO specify return type
 
     @GET("users/{userId}/books")
     suspend fun getUserBooks(@Path("userId") userId: Int): List<UserBook> // TODO alter return type

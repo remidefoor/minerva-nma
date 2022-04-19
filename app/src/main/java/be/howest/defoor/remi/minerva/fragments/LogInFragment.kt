@@ -8,12 +8,10 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.NavDirections
-import be.howest.defoor.remi.minerva.AuthActivity
+import androidx.navigation.fragment.findNavController
 import be.howest.defoor.remi.minerva.MainActivity
 import be.howest.defoor.remi.minerva.databinding.FragmentLogInBinding
-import be.howest.defoor.remi.minerva.model.User
 import be.howest.defoor.remi.minerva.model.view_models.LogInViewModel
-import be.howest.defoor.remi.minerva.network.MinervaApi
 
 class LogInFragment : Fragment() {
 
@@ -33,14 +31,15 @@ class LogInFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding?.apply {
+            model = viewModel
             lifecycleOwner = viewLifecycleOwner
             fragment = this@LogInFragment
         }
     }
 
     fun logIn() {
-        // TODO implement
-        navigateToMainActivity()
+        viewModel.logIn()
+        // navigateToMainActivity()
     }
 
     private fun navigateToMainActivity() {
@@ -50,6 +49,7 @@ class LogInFragment : Fragment() {
 
     fun navigateToSignUpFragment() {
         val action: NavDirections = LogInFragmentDirections.actionLogInFragmentToSignUpFragment()
+        findNavController().navigate(action)
     }
 
     override fun onDestroyView() {

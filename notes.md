@@ -21,7 +21,7 @@
 
 # questions
 
-- **Hoe wacht je op het resolven van een functie die een coroutine bevat?**
+- **Hoe implementeer ik two way data binding, zodat de gebruikersinvoer in het view model terecht komt,  in het log in en sign up fragment?**
 
 - Nu gebruik ik voor icoontjes die knoppen zijn image views, is dit correct of bestaat er hier een geschikter element voor?
 
@@ -36,8 +36,6 @@
 - Ziet u een pagina om nieuwe boeken toe te voegen als een fragment binnen de main activity of als een nieuwe activity?
 
 - Zou u a.u.b. eens de XML van mijn verschillende activeiten en fragmenten willen nakijken om te weten of ik een goede structuur heb en de juiste layouts en views gebruik?
-
-- De on click listeners op de text views in mijn auth fragmenten luisteren niet.
 
 - Hoe voeg ik click listeners met navigatie toe aan mijn bottom navigation menu?
 

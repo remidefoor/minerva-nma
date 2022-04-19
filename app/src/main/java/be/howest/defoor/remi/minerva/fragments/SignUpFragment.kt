@@ -39,7 +39,6 @@ class SignUpFragment : Fragment() {
 
     fun signUp() {
         // TODO implement
-        navigateToMainActivity()
     }
 
     private fun navigateToMainActivity() {

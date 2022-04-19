@@ -7,7 +7,6 @@ import androidx.lifecycle.viewModelScope
 import be.howest.defoor.remi.minerva.model.User
 import be.howest.defoor.remi.minerva.network.MinervaApi
 import kotlinx.coroutines.launch
-import java.lang.Exception
 
 class LogInViewModel : ViewModel() {
     
@@ -32,7 +31,22 @@ class LogInViewModel : ViewModel() {
         _password.value = password
     }
 
-    fun resetCredentials() {
+    fun logIn() {
+        viewModelScope.launch {
+            try {
+                _email.value?.let { email ->
+                    _password.value?.let { password ->
+                        val userId: Int = MinervaApi.retrofitService.logIn(User(email, password))
+                    }
+                }
+            } catch (ex: Exception) {
+                // TODO NYI
+                resetCredentials()
+            }
+        }
+    }
+
+    private fun resetCredentials() {
         _email.value = ""
         _password.value = ""
     }
