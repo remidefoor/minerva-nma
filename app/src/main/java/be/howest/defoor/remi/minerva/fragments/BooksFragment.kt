@@ -37,7 +37,7 @@ class BooksFragment : Fragment(), SearchView.OnQueryTextListener {
         savedInstanceState: Bundle?
     ): View? {
         val fragmentBinding: FragmentBooksBinding = FragmentBooksBinding.inflate(inflater, container, false)
-
+        
         books.addAll(mockData)
         bookAdapter = BookAdapter(books, this::handleClickOnBook)
         sharedViewModel.setBooks(books)

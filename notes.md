@@ -41,12 +41,14 @@
 
 - Hoe voeg ik click listeners met navigatie toe aan mijn bottom navigation menu?
 
+- De search view die ik heb toegevoegd aan de action bar in het books fragment verschijnt niet.
+
 - Ik kan geen marges instellen in het layout tablad voor elementen in een constraint layout.
 
-  ![](.\notes_assets\images\constraint_layout_manager.png)
+  ![](./notes_assets/images/constraint_layout_manager.png)
 
 - Hoe parse ik een complexe API response waar ik slechts enkele velden nodig van heb met Moshi?
 
-  ![](.\notes_assets\images\google_books_API_response.png)
+  ![](./notes_assets/images/google_books_API_response.png)
 
   
