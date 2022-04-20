@@ -11,16 +11,12 @@ class ProfileViewModel : ViewModel() {
     val user: LiveData<User>
         get() = _user
 
-    fun setUser(user: User) {
-        _user.value = user
-    }
-
     init {
         // _user.value = getUser()
     }
 
     private fun getUser(): User {
-        TODO("implement")
+        TODO("TODO get user from room db")
     }
 
 }

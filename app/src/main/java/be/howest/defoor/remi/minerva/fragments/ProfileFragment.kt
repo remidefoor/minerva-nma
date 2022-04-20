@@ -31,7 +31,6 @@ class ProfileFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding?.apply {
-            model = viewModel
             lifecycleOwner = viewLifecycleOwner
             fragment = this@ProfileFragment
         }
@@ -44,7 +43,7 @@ class ProfileFragment : Fragment() {
 
     fun logOff() {
         // TODO implement
-        navigateToAuthActivity()
+        // navigateToAuthActivity()
     }
 
     private fun navigateToAuthActivity() {
