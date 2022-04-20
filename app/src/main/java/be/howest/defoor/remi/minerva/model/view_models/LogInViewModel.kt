@@ -11,12 +11,12 @@ import kotlinx.coroutines.launch
 class LogInViewModel : ViewModel() {
     
     private val _email: MutableLiveData<String> = MutableLiveData<String>()
-    val email: LiveData<String>
-        get() = _email
+    val email: String
+        get() = _email.value!!
 
     private val _password: MutableLiveData<String> = MutableLiveData<String>()
-    val password: LiveData<String>
-        get() = _password
+    val password: String
+        get() = _password.value!!
 
     init {
         _email.value = ""
@@ -24,11 +24,15 @@ class LogInViewModel : ViewModel() {
     }
 
     fun setEmail(email: String) {
-        _email.value = email
+        if(!this.email.equals(email)) {
+            _email.value = email
+        }
     }
 
     fun setPassword(password: String) {
-        _password.value = password
+        if (!this.password.equals(password)) {
+            _password.value = password
+        }
     }
 
     fun logIn() {
@@ -36,7 +40,8 @@ class LogInViewModel : ViewModel() {
             try {
                 _email.value?.let { email ->
                     _password.value?.let { password ->
-                        val userId: Int = MinervaApi.retrofitService.logIn(User(email, password))
+                        val userId: Int = MinervaApi.retrofitService.logIn(User("harry.potter@hogwarts.wiz", "Nimbus2000"))
+                        println(userId)
                     }
                 }
             } catch (ex: Exception) {
