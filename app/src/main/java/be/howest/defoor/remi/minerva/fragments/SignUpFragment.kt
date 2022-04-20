@@ -38,7 +38,8 @@ class SignUpFragment : Fragment() {
     }
 
     fun signUp() {
-        // TODO implement
+        viewModel.postUser()
+        // navigateToMainActivity()
     }
 
     private fun navigateToMainActivity() {

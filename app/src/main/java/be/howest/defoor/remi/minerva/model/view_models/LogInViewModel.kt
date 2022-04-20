@@ -35,17 +35,12 @@ class LogInViewModel : ViewModel() {
         }
     }
 
-    fun logIn() {
+    fun postLogIn() {
         viewModelScope.launch {
             try {
-                _email.value?.let { email ->
-                    _password.value?.let { password ->
-                        val userId: Int = MinervaApi.retrofitService.logIn(User("harry.potter@hogwarts.wiz", "Nimbus2000"))
-                        println(userId)
-                    }
-                }
+                val userId: Int = MinervaApi.retrofitService.logIn(User(email, password))
             } catch (ex: Exception) {
-                // TODO NYI
+                // TODO display api errs
                 resetCredentials()
             }
         }

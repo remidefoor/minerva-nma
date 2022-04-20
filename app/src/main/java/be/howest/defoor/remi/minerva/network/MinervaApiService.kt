@@ -26,7 +26,7 @@ private val retrofit: Retrofit = Retrofit.Builder()
 interface MinervaApiService {
 
     @POST("users")
-    suspend fun postUser(@Body user: User) // TODO specify return type
+    suspend fun postUser(@Body user: User): Int // TODO specify return type
 
     @POST("users/log-in")
     suspend fun logIn(@Body user: User): Int // TODO specify return type

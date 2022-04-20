@@ -38,7 +38,7 @@ class LogInFragment : Fragment() {
     }
 
     fun logIn() {
-        viewModel.logIn()
+        viewModel.postLogIn()
         // navigateToMainActivity()
     }
 
