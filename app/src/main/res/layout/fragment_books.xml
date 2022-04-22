@@ -6,6 +6,9 @@
 
     <data>
         <variable
+            name="viewModel"
+            type="be.howest.defoor.remi.minerva.model.view_models.BooksViewModel" />
+        <variable
             name="fragment"
             type="be.howest.defoor.remi.minerva.fragments.BooksFragment" />
     </data>
@@ -33,7 +36,9 @@
                 android:layout_height="match_parent"
                 android:clipToPadding="false"
                 android:paddingBottom="40dp"
-                tools:listitem="@layout/book"/>
+                tools:listitem="@layout/book"
+                tools:itemCount="3"
+                app:listBooks="@{viewModel.filteredBooks}"/>
 
             <ImageView
                 android:id="@+id/books_ic_add_box"

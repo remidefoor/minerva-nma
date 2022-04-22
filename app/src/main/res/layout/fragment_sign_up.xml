@@ -6,7 +6,7 @@
 
     <data>
         <variable
-            name="model"
+            name="viewModel"
             type="be.howest.defoor.remi.minerva.model.view_models.SignUpViewModel" />
         <variable
             name="fragment"
@@ -32,7 +32,7 @@
                 android:id="@+id/sign_up_input_email"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="@={model.email}"
+                android:text="@={viewModel.email}"
                 android:background="@color/sand_accent"
                 android:hint="@string/email"
                 android:inputType="textEmailAddress"
@@ -53,7 +53,7 @@
                 android:id="@+id/sign_up_input_password"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="@={model.password}"
+                android:text="@={viewModel.password}"
                 android:background="@color/sand_accent"
                 android:hint="@string/password"
                 android:inputType="textPassword"
@@ -74,7 +74,7 @@
                 android:id="@+id/sign_up_input_password_confirmation"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="@={model.confirmedPassword}"
+                android:text="@={viewModel.confirmedPassword}"
                 android:background="@color/sand_accent"
                 android:hint="@string/confirm_password"
                 android:inputType="textPassword"

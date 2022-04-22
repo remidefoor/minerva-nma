@@ -8,16 +8,14 @@ import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import be.howest.defoor.remi.minerva.R
 import be.howest.defoor.remi.minerva.adapters.NoteAdapter
 import be.howest.defoor.remi.minerva.databinding.FragmentNotesBinding
-import be.howest.defoor.remi.minerva.model.Note
-import be.howest.defoor.remi.minerva.model.view_models.BookViewModel
+import be.howest.defoor.remi.minerva.model.view_models.BooksViewModel
 
 class NotesFragment : Fragment() {
 
     private var binding: FragmentNotesBinding? = null
-    private val sharedViewModel: BookViewModel by activityViewModels()
+    private val sharedViewModel: BooksViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

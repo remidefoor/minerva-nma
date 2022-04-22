@@ -53,7 +53,7 @@
                 android:scaleType="fitXY"
                 android:adjustViewBounds="true"
                 android:layout_marginBottom="10dp"
-                tools:src="@drawable/harry_potter_and_the_philosopher_s_stone_book_cover" />
+                tools:src="@drawable/blank_book_cover" />
 
             <TextView
                 android:id="@+id/add_book_label_book_title"

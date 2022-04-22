@@ -36,19 +36,19 @@ class SignUpViewModel : ViewModel() {
     }
 
     fun setPassword(password: String) {
-        if (!this.password.equals(password)) {
+        if (this.password != password) {
             _password.value = password
         }
     }
 
     fun setConfirmedPassword(confirmedPassword: String) {
-        if (!this.confirmedPassword.equals(confirmedPassword)) {
+        if (this.confirmedPassword != confirmedPassword) {
             _confirmedPassword.value = confirmedPassword
         }
     }
 
     fun postUser() {
-        if (password.equals(confirmedPassword)) {
+        if (password == confirmedPassword) {
             viewModelScope.launch {
                 try {
                     val id: Int = MinervaApi.retrofitService.postUser(User(email, password))
@@ -59,10 +59,11 @@ class SignUpViewModel : ViewModel() {
             }
         } else {
             // TODO display err: pwds not equal
+            resetPasswords()
         }
     }
 
-    fun resetPasswords() {
+    private fun resetPasswords() {
         _password.value = ""
         _confirmedPassword.value = ""
     }

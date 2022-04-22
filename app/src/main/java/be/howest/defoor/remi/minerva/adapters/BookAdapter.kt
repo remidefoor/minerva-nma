@@ -1,48 +1,48 @@
 package be.howest.defoor.remi.minerva.adapters
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import be.howest.defoor.remi.minerva.R
+import be.howest.defoor.remi.minerva.databinding.BookBinding
 import be.howest.defoor.remi.minerva.model.Book
 
-class BookAdapter(
-    private val books: List<Book>,
-    private val bookClickListener: (Book) -> Unit
-    ) : RecyclerView.Adapter<BookAdapter.BookViewHolder>() {
+class BookAdapter(val listener: BookListener) : ListAdapter<Book, BookAdapter.BookViewHolder>(DiffCallback) {
 
-    class BookViewHolder(
-        private val view: View,
-        clickAtPosition: (Int) -> Unit
-        ) : RecyclerView.ViewHolder(view) {
-        val imageView: ImageView = view.findViewById(R.id.book_cover)
-        val textView: TextView = view.findViewById(R.id.book_title)
+    class BookViewHolder(private val binding: BookBinding) : RecyclerView.ViewHolder(binding.root) {
 
-        init {
-            view.setOnClickListener {
-                clickAtPosition(adapterPosition)
-            }
+        fun bind(book: Book, listener: BookListener) {
+            binding.book = book
+            binding.listener = listener
+            binding.executePendingBindings()
         }
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BookViewHolder {
-        val adapterLayout: View = LayoutInflater.from(parent.context)
-            .inflate(R.layout.book, parent, false)
-        return BookViewHolder(adapterLayout) {
-            bookClickListener(books[it])
-        }
+        return BookViewHolder(BookBinding.inflate(LayoutInflater.from(parent.context)))
     }
 
     override fun onBindViewHolder(holder: BookViewHolder, position: Int) {
-        val book: Book = books[position]
-        holder.imageView.setImageResource(book.imageUrl)
-        holder.textView.text = book.title
+        val book: Book = getItem(position)
+        holder.bind(book, listener)
     }
 
-    override fun getItemCount(): Int {
-        return books.size
+    companion object DiffCallback : DiffUtil.ItemCallback<Book>() {
+        override fun areItemsTheSame(oldItem: Book, newItem: Book): Boolean {
+            return oldItem.isbn == newItem.isbn
+        }
+
+        override fun areContentsTheSame(oldItem: Book, newItem: Book): Boolean {
+            return oldItem == newItem
+        }
     }
+
+}
+
+class BookListener(val clickListener: (book: Book) -> Unit) {
+
+    fun onClick(book: Book) = clickListener(book)
+
 }

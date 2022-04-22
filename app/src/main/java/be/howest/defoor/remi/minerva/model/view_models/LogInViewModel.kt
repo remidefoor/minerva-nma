@@ -24,13 +24,13 @@ class LogInViewModel : ViewModel() {
     }
 
     fun setEmail(email: String) {
-        if(!this.email.equals(email)) {
+        if(this.email != email) {
             _email.value = email
         }
     }
 
     fun setPassword(password: String) {
-        if (!this.password.equals(password)) {
+        if (this.password != password) {
             _password.value = password
         }
     }
