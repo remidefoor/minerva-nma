@@ -31,7 +31,7 @@ class LogInFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding?.apply {
-            model = viewModel
+            viewModel = viewModel
             lifecycleOwner = viewLifecycleOwner
             fragment = this@LogInFragment
         }

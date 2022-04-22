@@ -16,7 +16,7 @@ class AddBookViewModel : ViewModel() {
 
     init {
         _isbn.value = ""
-        book = Book("9789076174105", R.drawable.harry_potter_and_the_philosopher_s_stone_book_cover, "Harry Potter en de steen der wijzen", listOf("Joanne Kathleen Rowling"))
+        book = Book("9789076174105", "http://books.google.com/books/content?id=VHpUPgAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api", "Harry Potter en de steen der wijzen", listOf("Joanne Kathleen Rowling"))
     }
 
     fun setIsbn(isbn: String) {
