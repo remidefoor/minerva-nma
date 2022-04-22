@@ -29,7 +29,6 @@ class BooksFragment : Fragment(), SearchView.OnQueryTextListener {
         val fragmentBinding: FragmentBooksBinding = FragmentBooksBinding.inflate(inflater, container, false)
 
         val recyclerView: RecyclerView = fragmentBinding.booksRecyclerView
-        recyclerView.layoutManager = LinearLayoutManager(requireContext())
         recyclerView.setHasFixedSize(true)
         recyclerView.adapter = bookAdapter
 
@@ -43,7 +42,7 @@ class BooksFragment : Fragment(), SearchView.OnQueryTextListener {
     }
 
     private fun navigateToNotes(book: Book) {
-        val action: NavDirections = BooksFragmentDirections.actionBooksFragmentToNotesFragment()
+        val action: NavDirections = BooksFragmentDirections.actionBooksFragmentToNotesFragment(book)
         findNavController().navigate(action)
     }
 
@@ -51,6 +50,7 @@ class BooksFragment : Fragment(), SearchView.OnQueryTextListener {
         super.onViewCreated(view, savedInstanceState)
 
         binding?.apply {
+            viewModel = viewModel
             lifecycleOwner = viewLifecycleOwner
             fragment = this@BooksFragment
         }

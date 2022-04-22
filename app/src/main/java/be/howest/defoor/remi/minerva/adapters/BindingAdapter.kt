@@ -7,6 +7,7 @@ import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import be.howest.defoor.remi.minerva.R
 import be.howest.defoor.remi.minerva.model.Book
+import be.howest.defoor.remi.minerva.model.Note
 import coil.load
 
 @BindingAdapter("imageUrl")
@@ -24,4 +25,10 @@ fun bindImage(imageView: ImageView, imageUrl: String?) {
 fun bindBooksRecyclerView(recyclerView: RecyclerView, books: List<Book>) {
     val adapter: BookAdapter = recyclerView.adapter as BookAdapter
     adapter.submitList(books)
+}
+
+@BindingAdapter("listNotes")
+fun bindNotesRecyclerView(recyclerView: RecyclerView, notes: List<Note>) {
+    val adapter: NoteAdapter = recyclerView.adapter as NoteAdapter
+    adapter.submitList(notes)
 }

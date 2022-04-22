@@ -1,31 +1,42 @@
 package be.howest.defoor.remi.minerva.adapters
 
-import android.content.Context
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import be.howest.defoor.remi.minerva.R
+import be.howest.defoor.remi.minerva.databinding.NoteBinding
 import be.howest.defoor.remi.minerva.model.Note
 
-class NoteAdapter(private val notes: List<Note>): RecyclerView.Adapter<NoteAdapter.NoteViewHolder>() {
-    class NoteViewHolder(private val view: View): RecyclerView.ViewHolder(view) {
-        val textView: TextView = view.findViewById(R.id.note_note)
+class NoteAdapter : ListAdapter<Note, NoteAdapter.NoteViewHolder>(DiffCallback) {
+
+    class NoteViewHolder(private val binding: NoteBinding): RecyclerView.ViewHolder(binding.root) {
+
+        fun bind(note: Note) {
+            binding.note = note
+            binding.executePendingBindings()
+        }
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NoteViewHolder {
-        val adapterLayout: View = LayoutInflater.from(parent.context)
-            .inflate(R.layout.note, parent, false)
-        return NoteViewHolder(adapterLayout)
+        return NoteViewHolder(NoteBinding.inflate(LayoutInflater.from(parent.context)))
     }
 
     override fun onBindViewHolder(holder: NoteViewHolder, position: Int) {
-        val note: Note = notes[position]
-        holder.textView.text = note.note
+        val note: Note = getItem(position)
+        holder.bind(note)
     }
 
-    override fun getItemCount(): Int {
-        return notes.size
+    companion object DiffCallback : DiffUtil.ItemCallback<Note>() {
+        override fun areItemsTheSame(oldItem: Note, newItem: Note): Boolean {
+            return oldItem.id == newItem.id
+        }
+
+        override fun areContentsTheSame(oldItem: Note, newItem: Note): Boolean {
+            return oldItem.note == newItem.note
+        }
+
     }
+
 }

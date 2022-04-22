@@ -27,6 +27,9 @@
         <action
             android:id="@+id/action_notesFragment_to_booksFragment"
             app:destination="@id/fragment_books" />
+        <argument
+            android:name="book"
+            app:argType="be.howest.defoor.remi.minerva.model.Book" />
     </fragment>
     <fragment
         android:id="@+id/fragment_profile"

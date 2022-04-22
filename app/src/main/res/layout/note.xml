@@ -1,22 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/note_linear_layout"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:layout_marginTop="6dp"
-    android:layout_marginRight="12dp"
-    android:layout_marginBottom="6dp"
-    android:layout_marginLeft="12dp">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <TextView
-        android:id="@+id/note_note"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_gravity="end"
-        android:background="@color/navy_blue_accent"
-        android:padding="6dp"
-        android:textColor="@color/white"
-        tools:text="Ron and Hermione" />
-</LinearLayout>
+    <data>
+        <variable
+            name="note"
+            type="be.howest.defoor.remi.minerva.model.Note" />
+    </data>
+
+    <LinearLayout
+        android:id="@+id/note_linear_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="6dp"
+        android:layout_marginRight="12dp"
+        android:layout_marginBottom="6dp"
+        android:layout_marginLeft="12dp">
+
+        <TextView
+            android:id="@+id/note_note"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="end"
+            android:background="@color/navy_blue_accent"
+            android:padding="6dp"
+            android:text="@{note.note}"
+            android:textColor="@color/white"
+            tools:text="Ron and Hermione" />
+    </LinearLayout>
+</layout>

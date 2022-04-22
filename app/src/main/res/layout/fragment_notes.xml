@@ -6,8 +6,8 @@
 
     <data>
         <variable
-            name="fragment"
-            type="be.howest.defoor.remi.minerva.fragments.NotesFragment" />
+            name="viewModel"
+            type="be.howest.defoor.remi.minerva.model.view_models.NotesViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -35,7 +35,10 @@
                 android:paddingBottom="20dp"
                 android:clipToPadding="false"
                 android:layout_gravity="end"
-                tools:listitem="@layout/note"/>
+                tools:listitem="@layout/note"
+                tools:itemCount="5"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:listNotes="@{viewModel.notes}" />
 
         </FrameLayout>
 
@@ -66,12 +69,11 @@
 
             <ImageView
                 android:id="@+id/notes_ic_send"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_weight="1"
-                android:src="@drawable/ic_send_dark"
-                android:onClick="@{() -> fragment.addNote()}"/>
+                android:src="@drawable/ic_send_dark" />
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
