@@ -1,8 +1,6 @@
 package be.howest.defoor.remi.minerva.network
 
-import be.howest.defoor.remi.minerva.model.Note
-import be.howest.defoor.remi.minerva.model.User
-import be.howest.defoor.remi.minerva.model.UserBook
+import be.howest.defoor.remi.minerva.model.*
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import retrofit2.Retrofit
@@ -26,22 +24,22 @@ private val retrofit: Retrofit = Retrofit.Builder()
 interface MinervaApiService {
 
     @POST("users")
-    suspend fun postUser(@Body user: User): Int // TODO specify return type
+    suspend fun postUser(@Body user: User): Id
 
     @POST("users/log-in")
-    suspend fun logIn(@Body user: User): Int // TODO specify return type
+    suspend fun logIn(@Body user: User): Id
 
     @GET("users/{userId}/books")
-    suspend fun getUserBooks(@Path("userId") userId: Int): List<UserBook> // TODO alter return type
+    suspend fun getUserBooks(@Path("userId") userId: Int): List<UserBook>
 
     @POST("users/{userId}/books")
-    suspend fun postUserBook(@Path("userId") userId: Int, @Body userBook: UserBook) // TODO specify return type & alter body type
+    suspend fun postUserBook(@Path("userId") userId: Int, @Body userBook: UserBook)
 
     @GET("users/{userId}/books/{isbn}/notes")
     suspend fun getNotes(@Path("userId") userId: Int, @Path("isbn") isbn: String): List<Note>
 
     @POST("users/{userId}/books/{isbn}/notes")
-    suspend fun postNote(@Path("userId") userId: Int, @Path("isbn") isbn: String, @Body note: String) // TODO specify return type && alter body type
+    suspend fun postNote(@Path("userId") userId: Int, @Path("isbn") isbn: String, @Body note: NoteText): Id
 
 }
 
