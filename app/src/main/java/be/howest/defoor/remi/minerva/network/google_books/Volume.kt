@@ -1,0 +1,5 @@
+package be.howest.defoor.remi.minerva.network.google_books
+
+data class Volume(
+    val items: List<VolumeItem>
+)

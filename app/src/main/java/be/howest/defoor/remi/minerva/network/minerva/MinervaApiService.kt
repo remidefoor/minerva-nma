@@ -1,4 +1,4 @@
-package be.howest.defoor.remi.minerva.network
+package be.howest.defoor.remi.minerva.network.minerva
 
 import be.howest.defoor.remi.minerva.model.*
 import com.squareup.moshi.Moshi
@@ -10,7 +10,7 @@ import retrofit2.http.GET
 import retrofit2.http.POST
 import retrofit2.http.Path
 
-private const val BASE_URL = "http://192.168.56.56/api/"
+private const val BASE_URL = "http://laravel.minerva.com/api/"
 
 private val moshi: Moshi = Moshi.Builder()
     .add(KotlinJsonAdapterFactory())

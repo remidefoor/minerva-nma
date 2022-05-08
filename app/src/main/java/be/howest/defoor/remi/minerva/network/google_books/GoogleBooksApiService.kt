@@ -1,6 +1,5 @@
-package be.howest.defoor.remi.minerva.network
+package be.howest.defoor.remi.minerva.network.google_books
 
-import be.howest.defoor.remi.minerva.model.Book
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import retrofit2.Retrofit
@@ -22,7 +21,7 @@ private val retrofit: Retrofit = Retrofit.Builder()
 interface GoogleBooksApiService {
 
     @GET("volumes?q=isbn:{isbn}")
-    suspend fun getBook(@Path("isbn") isbn: String): List<Book>
+    suspend fun getBook(@Path("isbn") isbn: String): Volume
 
 }
 
