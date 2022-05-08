@@ -19,16 +19,9 @@ class AddBookFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val fragmentBinding: FragmentAddBookBinding = FragmentAddBookBinding.inflate(inflater, container, false)
+        fragmentBinding.lifecycleOwner = viewLifecycleOwner
         binding = fragmentBinding
         return fragmentBinding.root
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        binding?.apply {
-            lifecycleOwner = viewLifecycleOwner
-        }
     }
 
     override fun onDestroyView() {

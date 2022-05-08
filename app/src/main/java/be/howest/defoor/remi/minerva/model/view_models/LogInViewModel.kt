@@ -5,7 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import be.howest.defoor.remi.minerva.network.minerva.Id
 import be.howest.defoor.remi.minerva.model.User
-import be.howest.defoor.remi.minerva.network.MinervaApi
+import be.howest.defoor.remi.minerva.network.minerva.MinervaApi
 import kotlinx.coroutines.launch
 
 class LogInViewModel : ViewModel() {

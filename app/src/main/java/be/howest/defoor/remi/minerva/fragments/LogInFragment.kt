@@ -23,18 +23,11 @@ class LogInFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val fragmentBinding: FragmentLogInBinding = FragmentLogInBinding.inflate(inflater, container, false)
+        fragmentBinding.lifecycleOwner = viewLifecycleOwner
+        fragmentBinding.viewModel = viewModel
+        fragmentBinding.fragment = this@LogInFragment
         binding = fragmentBinding
         return fragmentBinding.root
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        binding?.apply {
-            viewModel = viewModel
-            lifecycleOwner = viewLifecycleOwner
-            fragment = this@LogInFragment
-        }
     }
 
     fun logIn() {

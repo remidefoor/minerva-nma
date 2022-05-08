@@ -24,17 +24,10 @@ class SignUpFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val fragmentBinding: FragmentSignUpBinding = FragmentSignUpBinding.inflate(inflater, container, false)
+        fragmentBinding.lifecycleOwner = viewLifecycleOwner
+        fragmentBinding.fragment = this@SignUpFragment
         binding = fragmentBinding
         return fragmentBinding.root
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        binding?.apply {
-            lifecycleOwner = viewLifecycleOwner
-            fragment = this@SignUpFragment
-        }
     }
 
     fun signUp() {

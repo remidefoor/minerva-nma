@@ -23,17 +23,10 @@ class ProfileFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val fragmentBinding: FragmentProfileBinding = FragmentProfileBinding.inflate(inflater, container, false)
+        fragmentBinding.lifecycleOwner = viewLifecycleOwner
+        fragmentBinding.fragment = this@ProfileFragment
         binding = fragmentBinding
         return fragmentBinding.root
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        binding?.apply {
-            lifecycleOwner = viewLifecycleOwner
-            fragment = this@ProfileFragment
-        }
     }
 
     private fun navigateToBooksFragment() {

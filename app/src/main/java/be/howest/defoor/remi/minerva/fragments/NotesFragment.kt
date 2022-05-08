@@ -27,13 +27,11 @@ class NotesFragment : Fragment() {
     ): View? {
         viewModelFactory = NotesViewModelFactory(NotesFragmentArgs.fromBundle(requireArguments()).book)
         viewModel = ViewModelProvider(this, viewModelFactory).get(NotesViewModel::class.java)
-        val fragmentBinding: FragmentNotesBinding = FragmentNotesBinding.inflate(inflater, container, false)
-        binding = fragmentBinding
 
-        fragmentBinding.apply {
-            lifecycleOwner = viewLifecycleOwner
-            viewModel = viewModel
-        }
+        val fragmentBinding: FragmentNotesBinding = FragmentNotesBinding.inflate(inflater, container, false)
+        fragmentBinding.lifecycleOwner = viewLifecycleOwner
+        fragmentBinding.viewModel = viewModel
+        binding = fragmentBinding
 
         val recyclerView: RecyclerView = fragmentBinding.notesRecyclerView
         recyclerView.setHasFixedSize(true)

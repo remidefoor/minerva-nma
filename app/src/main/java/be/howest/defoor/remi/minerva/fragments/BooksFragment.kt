@@ -29,19 +29,13 @@ class BooksFragment : Fragment(), SearchView.OnQueryTextListener {
         savedInstanceState: Bundle?
     ): View? {
         val fragmentBinding: FragmentBooksBinding = FragmentBooksBinding.inflate(inflater, container, false)
-
-        binding = fragmentBinding
         fragmentBinding.lifecycleOwner = viewLifecycleOwner
         fragmentBinding.viewModel = viewModel
+        binding = fragmentBinding
 
         val recyclerView: RecyclerView = fragmentBinding.booksRecyclerView
         recyclerView.setHasFixedSize(true)
         recyclerView.adapter = bookAdapter
-
-        //betere manier om event listener te koppelen
-        fragmentBinding.booksIcAddBox.setOnClickListener {
-            navigateToAddBook()
-        }
 
         return fragmentBinding.root
     }
