@@ -39,6 +39,7 @@ class LogInViewModel : ViewModel() {
         viewModelScope.launch {
             try {
                 val userId: Int = MinervaApi.retrofitService.logIn(User(email, password))
+                println(userId)
             } catch (ex: Exception) {
                 // TODO display api errs
                 resetCredentials()

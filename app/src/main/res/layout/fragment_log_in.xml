@@ -23,6 +23,7 @@
             android:id="@+id/log_in_input_email_wrapper"
             android:layout_width="@dimen/form_elem_width"
             android:layout_height="@dimen/form_elem_height"
+            android:layout_marginTop="10dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
@@ -32,10 +33,10 @@
                 android:id="@+id/log_in_input_email"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="@={viewModel.email}"
                 android:background="@color/sand_accent"
                 android:hint="@string/email"
                 android:inputType="textEmailAddress"
+                android:text="@={viewModel.email}"
                 android:textColor="@color/navy_blue"
                 android:textColorHint="@color/navy_blue" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -44,6 +45,7 @@
             android:id="@+id/log_in_input_password_wrapper"
             android:layout_width="@dimen/form_elem_width"
             android:layout_height="@dimen/form_elem_height"
+            android:layout_marginTop="10dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
@@ -53,10 +55,10 @@
                 android:id="@+id/log_in_input_password"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="@={viewModel.password}"
                 android:background="@color/sand_accent"
                 android:hint="@string/password"
                 android:inputType="textPassword"
+                android:text="@={viewModel.password}"
                 android:textColor="@color/navy_blue"
                 android:textColorHint="@color/navy_blue" />
         </com.google.android.material.textfield.TextInputLayout>

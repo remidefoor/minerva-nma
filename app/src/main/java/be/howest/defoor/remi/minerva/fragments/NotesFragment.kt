@@ -28,22 +28,18 @@ class NotesFragment : Fragment() {
         viewModelFactory = NotesViewModelFactory(NotesFragmentArgs.fromBundle(requireArguments()).book)
         viewModel = ViewModelProvider(this, viewModelFactory).get(NotesViewModel::class.java)
         val fragmentBinding: FragmentNotesBinding = FragmentNotesBinding.inflate(inflater, container, false)
+        binding = fragmentBinding
+
+        fragmentBinding.apply {
+            lifecycleOwner = viewLifecycleOwner
+            viewModel = viewModel
+        }
 
         val recyclerView: RecyclerView = fragmentBinding.notesRecyclerView
         recyclerView.setHasFixedSize(true)
         recyclerView.adapter = NoteAdapter()
 
-        binding = fragmentBinding
         return fragmentBinding.root
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        binding?.apply {
-            viewModel = viewModel
-            lifecycleOwner = viewLifecycleOwner
-        }
     }
 
     override fun onDestroyView() {

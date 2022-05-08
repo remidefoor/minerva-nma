@@ -9,12 +9,14 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.appcompat.widget.SearchView
+import androidx.navigation.NavController
 import be.howest.defoor.remi.minerva.R
 import be.howest.defoor.remi.minerva.adapters.BookAdapter
 import be.howest.defoor.remi.minerva.adapters.BookListener
 import be.howest.defoor.remi.minerva.databinding.FragmentBooksBinding
 import be.howest.defoor.remi.minerva.model.Book
 import be.howest.defoor.remi.minerva.model.view_models.BooksViewModel
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class BooksFragment : Fragment(), SearchView.OnQueryTextListener {
 
@@ -28,11 +30,19 @@ class BooksFragment : Fragment(), SearchView.OnQueryTextListener {
     ): View? {
         val fragmentBinding: FragmentBooksBinding = FragmentBooksBinding.inflate(inflater, container, false)
 
+        binding = fragmentBinding
+        fragmentBinding.lifecycleOwner = viewLifecycleOwner
+        fragmentBinding.viewModel = viewModel
+
         val recyclerView: RecyclerView = fragmentBinding.booksRecyclerView
         recyclerView.setHasFixedSize(true)
         recyclerView.adapter = bookAdapter
 
-        binding = fragmentBinding
+        //betere manier om event listener te koppelen
+        fragmentBinding.booksIcAddBox.setOnClickListener {
+            navigateToAddBook()
+        }
+
         return fragmentBinding.root
     }
 
@@ -41,19 +51,14 @@ class BooksFragment : Fragment(), SearchView.OnQueryTextListener {
         navigateToNotes(book)
     }
 
+//    private fun setupBottomNavMenu(navController: NavController) {
+//        val bottomNav = findViewById<BottomNavigationView>(R.id.books_bottom_nav_men)
+//        bottomNav?.setupWithNavController(navController)
+//    }
+
     private fun navigateToNotes(book: Book) {
         val action: NavDirections = BooksFragmentDirections.actionBooksFragmentToNotesFragment(book)
         findNavController().navigate(action)
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        binding?.apply {
-            viewModel = viewModel
-            lifecycleOwner = viewLifecycleOwner
-            fragment = this@BooksFragment
-        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
