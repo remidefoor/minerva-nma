@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.appcompat.widget.SearchView
 import androidx.navigation.NavController
+import androidx.navigation.ui.setupWithNavController
 import be.howest.defoor.remi.minerva.R
 import be.howest.defoor.remi.minerva.adapters.BookAdapter
 import be.howest.defoor.remi.minerva.adapters.BookListener
@@ -45,10 +46,10 @@ class BooksFragment : Fragment(), SearchView.OnQueryTextListener {
         navigateToNotes(book)
     }
 
-//    private fun setupBottomNavMenu(navController: NavController) {
-//        val bottomNav = findViewById<BottomNavigationView>(R.id.books_bottom_nav_men)
-//        bottomNav?.setupWithNavController(navController)
-//    }
+    private fun setupBottomNavMenu(navController: NavController) {
+        val bottomNavMenu: BottomNavigationView? = view?.findViewById<BottomNavigationView>(R.id.books_bottom_nav_menu)
+        bottomNavMenu?.setupWithNavController(navController)
+    }
 
     private fun navigateToNotes(book: Book) {
         val action: NavDirections = BooksFragmentDirections.actionBooksFragmentToNotesFragment(book)

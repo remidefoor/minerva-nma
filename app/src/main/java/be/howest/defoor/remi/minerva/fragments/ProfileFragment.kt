@@ -7,11 +7,15 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.NavController
 import androidx.navigation.NavDirections
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.setupWithNavController
 import be.howest.defoor.remi.minerva.AuthActivity
+import be.howest.defoor.remi.minerva.R
 import be.howest.defoor.remi.minerva.databinding.FragmentProfileBinding
 import be.howest.defoor.remi.minerva.model.view_models.ProfileViewModel
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class ProfileFragment : Fragment() {
 
@@ -27,6 +31,11 @@ class ProfileFragment : Fragment() {
         fragmentBinding.fragment = this@ProfileFragment
         binding = fragmentBinding
         return fragmentBinding.root
+    }
+
+    private fun setupBottomNavMenu(navController: NavController) {
+        val bottomNavMenu: BottomNavigationView? = view?.findViewById<BottomNavigationView>(R.id.books_bottom_nav_menu)
+        bottomNavMenu?.setupWithNavController(navController)
     }
 
     private fun navigateToBooksFragment() {
