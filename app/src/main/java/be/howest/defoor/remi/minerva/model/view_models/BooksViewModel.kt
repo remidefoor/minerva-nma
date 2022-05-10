@@ -3,7 +3,12 @@ package be.howest.defoor.remi.minerva.model.view_models
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import be.howest.defoor.remi.minerva.model.Book
+import be.howest.defoor.remi.minerva.network.minerva.MinervaApi
+import be.howest.defoor.remi.minerva.network.minerva.UserBook
+import kotlinx.coroutines.launch
+import java.lang.Exception
 
 class BooksViewModel : ViewModel() {
 
@@ -32,6 +37,16 @@ class BooksViewModel : ViewModel() {
             Book("9789076174105", "http://books.google.com/books/content?id=jUcvPQAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api", "Harry Potter en de vuurbeker", listOf("Joanne Kathleen Rowling")),
             Book("9789076174105", "http://books.google.com/books/content?id=GMXKGAAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api", "Harry Potter en de Orde van de Feniks", listOf("Joanne Kathleen Rowling")),
         )
+        viewModelScope.launch {
+            try {
+                println("in")
+                val userBooks: List<UserBook> = MinervaApi.retrofitService.getUserBooks(1);
+                println(userBooks)
+                println("worked")
+            } catch (ex: Exception) {
+
+            }
+        }
         _books.value = books
         _filteredBooks.value = books
     }
