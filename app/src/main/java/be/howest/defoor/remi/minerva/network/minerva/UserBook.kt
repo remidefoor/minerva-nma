@@ -1,5 +1,7 @@
 package be.howest.defoor.remi.minerva.network.minerva
 
+import com.squareup.moshi.Json
+
 data class UserBook (
-    val isbn: String
+    @Json(name = "ISBN") val isbn: String
 )

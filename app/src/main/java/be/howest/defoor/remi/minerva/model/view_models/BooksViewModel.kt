@@ -5,10 +5,12 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import be.howest.defoor.remi.minerva.model.Book
+import be.howest.defoor.remi.minerva.network.google_books.GoogleBooksApi
+import be.howest.defoor.remi.minerva.network.google_books.Volume
+import be.howest.defoor.remi.minerva.network.google_books.VolumeInfo
 import be.howest.defoor.remi.minerva.network.minerva.MinervaApi
 import be.howest.defoor.remi.minerva.network.minerva.UserBook
 import kotlinx.coroutines.launch
-import java.lang.Exception
 
 class BooksViewModel : ViewModel() {
 
@@ -29,24 +31,33 @@ class BooksViewModel : ViewModel() {
     }
 
     private fun getAllBooks() {
-        // TODO get books from api
-        val books: List<Book> = listOf(
-            Book("9789076174105", "http://books.google.com/books/content?id=VHpUPgAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api", "Harry Potter en de steen der wijzen", listOf("Joanne Kathleen Rowling")),
-            Book("9789076174105", "http://books.google.com/books/content?id=LUJvGQAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api", "Harry Potter en de geheime kamer", listOf("Joanne Kathleen Rowling")),
-            Book("9789076174105", "http://books.google.com/books/content?id=jxPCGAAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api", "Harry Potter en de gevangene van Azkaban", listOf("Joanne Kathleen Rowling")),
-            Book("9789076174105", "http://books.google.com/books/content?id=jUcvPQAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api", "Harry Potter en de vuurbeker", listOf("Joanne Kathleen Rowling")),
-            Book("9789076174105", "http://books.google.com/books/content?id=GMXKGAAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api", "Harry Potter en de Orde van de Feniks", listOf("Joanne Kathleen Rowling")),
-        )
         viewModelScope.launch {
             try {
-                println("in")
-                val userBooks: List<UserBook> = MinervaApi.retrofitService.getUserBooks(1);
-                println(userBooks)
-                println("worked")
+                val userBooks: List<UserBook> = MinervaApi.retrofitService.getUserBooks(1)
+                val books: MutableList<Book> = mutableListOf()
+                for (userBook: UserBook in userBooks) {
+                    val volume: Volume = GoogleBooksApi.retrofitService.getBook("isbn:${userBook.isbn}")
+                    val book: Book = mapVolumeToBook(userBook.isbn, volume)
+                    books.add(book)
+                }
+                setAllBooks(books)
             } catch (ex: Exception) {
-
+                setAllBooks(emptyList())
             }
         }
+    }
+
+    private fun mapVolumeToBook(isbn: String, volume: Volume): Book {
+        val volumeInfo: VolumeInfo = volume.items.first().volumeInfo
+        return Book(
+            isbn,
+            volumeInfo.imageLinks.thumbnail,
+            volumeInfo.title,
+            volumeInfo.authors
+        )
+    }
+
+    private fun setAllBooks(books: List<Book>) {
         _books.value = books
         _filteredBooks.value = books
     }
