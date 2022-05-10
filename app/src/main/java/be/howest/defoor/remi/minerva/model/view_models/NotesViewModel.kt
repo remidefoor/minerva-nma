@@ -1,11 +1,11 @@
 package be.howest.defoor.remi.minerva.model.view_models
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.*
 import be.howest.defoor.remi.minerva.model.Book
 import be.howest.defoor.remi.minerva.model.Note
+import be.howest.defoor.remi.minerva.network.minerva.MinervaApi
+import kotlinx.coroutines.launch
+import java.lang.Exception
 import java.lang.IllegalArgumentException
 
 class NotesViewModel(book: Book) : ViewModel() {
@@ -24,13 +24,13 @@ class NotesViewModel(book: Book) : ViewModel() {
     }
 
     private fun getAllNotes() {
-        _notes.value = listOf(
-            Note(1, "Excited!!!"),
-            Note(2, "Perron 9 3/4"),
-            Note(3, "Ron and Hermione"),
-            Note(4, "Dumbledore"),
-            Note(5, "Voldemort")
-        )
+        viewModelScope.launch {
+            try {
+                _notes.value = MinervaApi.retrofitService.getNotes(1, "9789076174105")
+            } catch (ex: Exception) {
+                _notes.value = emptyList()
+            }
+        }
     }
 
 }
