@@ -32,6 +32,7 @@ class BooksFragment : Fragment(), SearchView.OnQueryTextListener {
         val fragmentBinding: FragmentBooksBinding = FragmentBooksBinding.inflate(inflater, container, false)
         fragmentBinding.lifecycleOwner = viewLifecycleOwner
         fragmentBinding.viewModel = viewModel
+        fragmentBinding.fragment = this
         setHasOptionsMenu(true)
         binding = fragmentBinding
 

@@ -20,6 +20,7 @@ class AddBookFragment : Fragment() {
     ): View? {
         val fragmentBinding: FragmentAddBookBinding = FragmentAddBookBinding.inflate(inflater, container, false)
         fragmentBinding.lifecycleOwner = viewLifecycleOwner
+        fragmentBinding.viewModel = viewModel
         binding = fragmentBinding
         return fragmentBinding.root
     }

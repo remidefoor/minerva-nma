@@ -1,34 +1,58 @@
 package be.howest.defoor.remi.minerva.model.view_models
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import be.howest.defoor.remi.minerva.R
 import be.howest.defoor.remi.minerva.model.Book
+import be.howest.defoor.remi.minerva.network.google_books.GoogleBooksApi
+import be.howest.defoor.remi.minerva.network.google_books.GoogleBooksApiService
+import be.howest.defoor.remi.minerva.network.google_books.Volume
+import be.howest.defoor.remi.minerva.network.google_books.VolumeInfo
+import kotlinx.coroutines.launch
+import java.lang.Exception
 
 class AddBookViewModel : ViewModel() {
 
     private val _isbn: MutableLiveData<String> = MutableLiveData<String>()
-    val isbn: LiveData<String>
-        get() = _isbn
+    val isbn: String
+        get() = _isbn.value!!
 
-    private var book: Book
+    private val _book: MutableLiveData<Book> = MutableLiveData<Book>()
+    val book: LiveData<Book>
+        get() = _book
 
     init {
         _isbn.value = ""
-        book = Book("9789076174105", "http://books.google.com/books/content?id=VHpUPgAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api", "Harry Potter en de steen der wijzen", listOf("Joanne Kathleen Rowling"))
     }
 
     fun setIsbn(isbn: String) {
-        _isbn.value = isbn
+        if (this.isbn != isbn) _isbn.value = isbn
     }
 
-    fun setBook(book: Book) {
-        this.book = book
+    fun getBookInfo() {
+        if (_isbn.value?.length == 10 || _isbn.value?.length == 13) {
+            viewModelScope.launch {
+                try {
+                    val volume: Volume = GoogleBooksApi.retrofitService.getBook("isbn:${_isbn.value}")
+                    _book.value = mapVolumeToBook(_isbn.value!!, volume)
+                } catch (ex: Exception) {
+
+                }
+            }
+        }
     }
 
-    fun getBook(): Book {
-        return book
+    private fun mapVolumeToBook(isbn: String, volume: Volume): Book {
+        val volumeInfo: VolumeInfo = volume.items.first().volumeInfo
+        return Book(
+            isbn,
+            volumeInfo.imageLinks.thumbnail,
+            volumeInfo.title,
+            volumeInfo.authors
+        )
     }
 
 }

@@ -5,6 +5,9 @@
     tools:context=".fragments.AddBookFragment">
 
     <data>
+        <variable
+            name="viewModel"
+            type="be.howest.defoor.remi.minerva.model.view_models.AddBookViewModel" />
     </data>
 
     <ScrollView
@@ -32,6 +35,7 @@
                     android:layout_height="match_parent"
                     android:background="@color/sand_accent"
                     android:hint="@string/placeholder_isbn"
+                    android:text="@={viewModel.isbn}"
                     android:textColor="@color/navy_blue"
                     android:textColorHint="@color/navy_blue" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -44,7 +48,8 @@
                 android:text="@string/button_search"
                 android:textAllCaps="false"
                 android:textColor="@color/sand_accent"
-                android:layout_marginBottom="50dp" />
+                android:layout_marginBottom="50dp"
+                android:onClick="@{() -> viewModel.getBookInfo()}"/>
 
             <ImageView
                 android:id="@+id/add_book_book_cover"
@@ -53,7 +58,8 @@
                 android:scaleType="fitXY"
                 android:adjustViewBounds="true"
                 android:layout_marginBottom="10dp"
-                tools:src="@drawable/blank_book_cover" />
+                tools:src="@drawable/blank_book_cover"
+                app:imageUrl="@{viewModel.book.imageUrl}"/>
 
             <TextView
                 android:id="@+id/add_book_label_book_title"
@@ -67,6 +73,7 @@
                 android:id="@+id/add_book_book_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="@{viewModel.book.title}"
                 android:textColor="@color/navy_blue"
                 android:layout_marginBottom="20dp"
                 tools:text="Harry Potter and the Philosopher's Stone" />
@@ -92,7 +99,8 @@
                 android:background="@color/navy_blue"
                 android:text="@string/button_add"
                 android:textAllCaps="false"
-                android:textColor="@color/sand_accent" />
+                android:textColor="@color/sand_accent"
+                android:onClick="@{}"/>
         </LinearLayout>
     </ScrollView>
 </layout>

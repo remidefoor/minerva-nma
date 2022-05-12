@@ -30,21 +30,15 @@ class SignUpViewModel : ViewModel() {
     }
 
     fun setEmail(email: String) {
-        if (!this.email.equals(email)) {
-            _email.value = email
-        }
+        if (!this.email.equals(email)) _email.value = email
     }
 
     fun setPassword(password: String) {
-        if (this.password != password) {
-            _password.value = password
-        }
+        if (this.password != password) _password.value = password
     }
 
     fun setConfirmedPassword(confirmedPassword: String) {
-        if (this.confirmedPassword != confirmedPassword) {
-            _confirmedPassword.value = confirmedPassword
-        }
+        if (this.confirmedPassword != confirmedPassword) _confirmedPassword.value = confirmedPassword
     }
 
     fun postUser() {
