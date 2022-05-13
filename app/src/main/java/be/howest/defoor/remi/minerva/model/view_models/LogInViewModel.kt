@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import be.howest.defoor.remi.minerva.network.minerva.Id
 import be.howest.defoor.remi.minerva.model.User
+import be.howest.defoor.remi.minerva.network.minerva.Credentials
 import be.howest.defoor.remi.minerva.network.minerva.MinervaApi
 import kotlinx.coroutines.launch
 
@@ -34,7 +35,7 @@ class LogInViewModel : ViewModel() {
     fun postLogIn() {
         viewModelScope.launch {
             try {
-                val userId: Id = MinervaApi.retrofitService.logIn(User("harry.potter@hogwarts.wiz", "Nimbus2000"))
+                val userId: Id = MinervaApi.retrofitService.logIn(Credentials("harry.potter@hogwarts.wiz", "Nimbus2000"))
             } catch (ex: Exception) {
                 // TODO display api errs
                 resetCredentials()

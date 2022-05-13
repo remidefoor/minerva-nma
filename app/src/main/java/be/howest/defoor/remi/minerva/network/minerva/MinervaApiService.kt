@@ -24,10 +24,10 @@ private val retrofit: Retrofit = Retrofit.Builder()
 interface MinervaApiService {
 
     @POST("users")
-    suspend fun postUser(@Body user: User): Id
+    suspend fun postUser(@Body credentials: Credentials): Id
 
     @POST("users/log-in")
-    suspend fun logIn(@Body user: User): Id
+    suspend fun logIn(@Body credentials: Credentials): Id
 
     @GET("users/{userId}/books")
     suspend fun getUserBooks(@Path("userId") userId: Int): List<UserBook>
