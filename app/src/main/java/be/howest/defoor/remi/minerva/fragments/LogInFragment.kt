@@ -32,7 +32,7 @@ class LogInFragment : Fragment() {
         val fragmentBinding: FragmentLogInBinding = FragmentLogInBinding.inflate(inflater, container, false)
         fragmentBinding.lifecycleOwner = viewLifecycleOwner
         fragmentBinding.viewModel = viewModel
-        fragmentBinding.fragment = this@LogInFragment
+        fragmentBinding.fragment = this
         binding = fragmentBinding
         return fragmentBinding.root
     }

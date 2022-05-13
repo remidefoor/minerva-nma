@@ -1,7 +1,9 @@
 package be.howest.defoor.remi.minerva.database
 
-import androidx.lifecycle.LiveData
-import androidx.room.*
+import androidx.room.Dao
+import androidx.room.Insert
+import androidx.room.OnConflictStrategy
+import androidx.room.Query
 import be.howest.defoor.remi.minerva.model.User
 import kotlinx.coroutines.flow.Flow
 
@@ -12,7 +14,7 @@ interface UserDao {
     suspend fun createUser(user: User)
 
      @Query("SELECT * FROM user LIMIT 1")
-     fun readUser(): LiveData<User>
+     fun readUser(): Flow<User>
 
      @Query("DELETE FROM user")
      fun deleteUser()

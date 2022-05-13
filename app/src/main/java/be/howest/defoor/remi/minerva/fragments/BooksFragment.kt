@@ -1,29 +1,34 @@
 package be.howest.defoor.remi.minerva.fragments
 
+import android.content.Context.INPUT_METHOD_SERVICE
 import android.os.Bundle
 import android.view.*
+import android.view.inputmethod.InputMethodManager
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.NavDirections
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.appcompat.widget.SearchView
 import androidx.navigation.NavController
 import androidx.navigation.ui.setupWithNavController
+import be.howest.defoor.remi.minerva.MinervaApplication
 import be.howest.defoor.remi.minerva.R
 import be.howest.defoor.remi.minerva.adapters.BookAdapter
 import be.howest.defoor.remi.minerva.adapters.BookListener
 import be.howest.defoor.remi.minerva.databinding.FragmentBooksBinding
 import be.howest.defoor.remi.minerva.model.Book
 import be.howest.defoor.remi.minerva.model.view_models.BooksViewModel
+import be.howest.defoor.remi.minerva.model.view_models.BooksViewModelFactory
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class BooksFragment : Fragment(), SearchView.OnQueryTextListener {
 
     private val bookAdapter: BookAdapter = BookAdapter(BookListener { book: Book ->  handleClickOnBook(book) })
     private var binding: FragmentBooksBinding? = null
-    private val viewModel: BooksViewModel by activityViewModels()
+    private val viewModel: BooksViewModel by activityViewModels {
+        BooksViewModelFactory((activity?.application as MinervaApplication).userRepository)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -85,6 +90,10 @@ class BooksFragment : Fragment(), SearchView.OnQueryTextListener {
 
     override fun onDestroyView() {
         super.onDestroyView()
+        // hide keyboard
+        val inputMethodManager: InputMethodManager = requireActivity().getSystemService(INPUT_METHOD_SERVICE)
+            as InputMethodManager
+        inputMethodManager.hideSoftInputFromWindow(requireActivity().currentFocus?.windowToken, 0)
         binding = null
     }
 

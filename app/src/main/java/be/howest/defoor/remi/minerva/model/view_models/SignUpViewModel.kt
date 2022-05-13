@@ -49,7 +49,7 @@ class SignUpViewModel(private val userRepository: UserRepository) : ViewModel() 
                 validateCredentials()
                 val credentials = Credentials(_email.value!!, _password.value!!)
                 val id: Id = MinervaApi.retrofitService.postUser(credentials)
-                val user: User = User(id.id, credentials.email, credentials.password)
+                val user = User(id.id, credentials.email, credentials.password)
                 saveUser(user)
             } catch (ex: IllegalStateException) {
                 // TODO display error message

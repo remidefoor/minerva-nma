@@ -1,18 +1,20 @@
 package be.howest.defoor.remi.minerva.model.view_models
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import android.util.Log
+import androidx.lifecycle.*
+import be.howest.defoor.remi.minerva.Repositories.UserRepository
 import be.howest.defoor.remi.minerva.model.Book
+import be.howest.defoor.remi.minerva.model.User
 import be.howest.defoor.remi.minerva.network.google_books.GoogleBooksApi
 import be.howest.defoor.remi.minerva.network.google_books.Volume
 import be.howest.defoor.remi.minerva.network.google_books.VolumeInfo
 import be.howest.defoor.remi.minerva.network.minerva.MinervaApi
 import be.howest.defoor.remi.minerva.network.minerva.UserBook
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
+import java.lang.IllegalArgumentException
 
-class BooksViewModel : ViewModel() {
+class BooksViewModel(private val userRepository: UserRepository) : ViewModel() {
 
     private val _books: MutableLiveData<List<Book>> = MutableLiveData<List<Book>>()
     val books: LiveData<List<Book>>
@@ -33,7 +35,8 @@ class BooksViewModel : ViewModel() {
     private fun getAllBooks() {
         viewModelScope.launch {
             try {
-                val userBooks: List<UserBook> = MinervaApi.retrofitService.getUserBooks(1)
+                val user = userRepository.user.first()
+                val userBooks: List<UserBook> = MinervaApi.retrofitService.getUserBooks(user.id)
                 val books: MutableList<Book> = mutableListOf()
                 for (userBook: UserBook in userBooks) {
                     val volume: Volume = GoogleBooksApi.retrofitService.getBook("isbn:${userBook.isbn}")
@@ -72,4 +75,13 @@ class BooksViewModel : ViewModel() {
         }
     }
 
+}
+
+class BooksViewModelFactory(private val userRepository: UserRepository) : ViewModelProvider.Factory {
+    override fun <T : ViewModel> create(modelClass: Class<T>): T {
+        if (modelClass.isAssignableFrom(BooksViewModel::class.java)) {
+            return BooksViewModel(userRepository) as T
+        }
+        throw IllegalArgumentException("Unkown view model class.")
+    }
 }
