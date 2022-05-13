@@ -6,12 +6,12 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import be.howest.defoor.remi.minerva.Repositories.UserRepository
-import be.howest.defoor.remi.minerva.network.minerva.Id
 import be.howest.defoor.remi.minerva.model.User
 import be.howest.defoor.remi.minerva.network.minerva.Credentials
+import be.howest.defoor.remi.minerva.network.minerva.Id
 import be.howest.defoor.remi.minerva.network.minerva.MinervaApi
 import kotlinx.coroutines.launch
-import java.lang.IllegalArgumentException
+import java.lang.IllegalStateException
 
 class LogInViewModel(private val userRepository: UserRepository) : ViewModel() {
     
@@ -39,14 +39,13 @@ class LogInViewModel(private val userRepository: UserRepository) : ViewModel() {
     fun postLogIn() {
         viewModelScope.launch {
             try {
-                if (credentialsAreValid()) {
-                    val credentials = Credentials(_email.value!!, _password.value!!)
-                    val userId: Id = MinervaApi.retrofitService.logIn(credentials)
-                    val user = User(userId.id, credentials.email, credentials.password)
-                    saveUser(user)
-                } else {
-                    // TODO display error message
-                }
+                validateCredentials()
+                val credentials = Credentials(_email.value!!, _password.value!!)
+                val id: Id = MinervaApi.retrofitService.logIn(credentials)
+                val user = User(id.id, credentials.email, credentials.password)
+                saveUser(user)
+            } catch (ex: IllegalStateException) {
+                // TODO display error message
             } catch (ex: Exception) {
                 // TODO display api errors
                 resetCredentials()
@@ -54,8 +53,14 @@ class LogInViewModel(private val userRepository: UserRepository) : ViewModel() {
         }
     }
 
-    private fun credentialsAreValid(): Boolean {
-        return _email.value?.length!! > 0 && _password.value?.length!! > 0
+    private fun validateCredentials() {
+        if (credentialsAreIncomplete()) {
+            throw IllegalStateException("An email and password must be provided")
+        }
+    }
+
+    private fun credentialsAreIncomplete(): Boolean {
+        return _email.value?.length!! == 0 || _password.value?.length!! == 0
     }
 
     private fun saveUser(user: User) {
@@ -66,8 +71,8 @@ class LogInViewModel(private val userRepository: UserRepository) : ViewModel() {
 
     private fun resetCredentials() {
         // TODO values are not reset
-        _email.value = ""
-        _password.value = ""
+        setEmail("")
+        setPassword("")
     }
 
 }

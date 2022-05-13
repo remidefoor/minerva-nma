@@ -10,14 +10,18 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.NavDirections
 import androidx.navigation.fragment.findNavController
 import be.howest.defoor.remi.minerva.MainActivity
+import be.howest.defoor.remi.minerva.MinervaApplication
 import be.howest.defoor.remi.minerva.R
 import be.howest.defoor.remi.minerva.databinding.FragmentSignUpBinding
 import be.howest.defoor.remi.minerva.model.view_models.SignUpViewModel
+import be.howest.defoor.remi.minerva.model.view_models.SignUpViewModelFactory
 
 class SignUpFragment : Fragment() {
 
     private var binding: FragmentSignUpBinding? = null
-    private val viewModel: SignUpViewModel by activityViewModels()
+    private val viewModel: SignUpViewModel by activityViewModels{
+        SignUpViewModelFactory((activity?.application as MinervaApplication).userRepository)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -25,6 +29,7 @@ class SignUpFragment : Fragment() {
     ): View? {
         val fragmentBinding: FragmentSignUpBinding = FragmentSignUpBinding.inflate(inflater, container, false)
         fragmentBinding.lifecycleOwner = viewLifecycleOwner
+        fragmentBinding.viewModel = viewModel
         fragmentBinding.fragment = this@SignUpFragment
         binding = fragmentBinding
         return fragmentBinding.root
