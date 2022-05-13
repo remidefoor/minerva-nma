@@ -21,32 +21,12 @@
 
 # questions
 
-- **Hoe implementeer ik two way data binding, zodat de gebruikersinvoer in het view model terecht komt,  in het log in en sign up fragment?**
+- Hoe stel ik de auth activity in als start activity?
 
-- Nu gebruik ik voor icoontjes die knoppen zijn image views, is dit correct of bestaat er hier een geschikter element voor?
+- Waar roep ik de functie op om te controleren of de gebruiker is ingelogd en indien nodig de main activity te openen?
 
-- view models:
+- Hoe return ik in een coroutine? Ik moet namelijk kunnen laten weten aan mijn fragment of de authenticatie geslaagd is om vervolgens al dan niet de main activity te openen.
 
-  - Nu maakt elk fragment gebruik van een view model ook al is er niet echt "live" data, maar verzamel ik bijvoorbeeld gebruikersinvoer. Is dit correct of kan ik beter de waarden opvragen in mijn fragment?
-  - Is het beter om objecten of individuele properties te gebruiken?
-  - Moet de data in live data zijn (zie bijvoorbeeld book view model)?
-
-- Hoe maak ik een coroutine in een fragment?
-
-- Ziet u een pagina om nieuwe boeken toe te voegen als een fragment binnen de main activity of als een nieuwe activity?
-
-- Zou u a.u.b. eens de XML van mijn verschillende activeiten en fragmenten willen nakijken om te weten of ik een goede structuur heb en de juiste layouts en views gebruik?
-
-- Hoe voeg ik click listeners met navigatie toe aan mijn bottom navigation menu?
-
-- De search view die ik heb toegevoegd aan de action bar in het books fragment verschijnt niet.
-
-- Ik kan geen marges instellen in het layout tablad voor elementen in een constraint layout.
-
-  ![](./notes_assets/images/constraint_layout_manager.png)
-
-- Hoe parse ik een complexe API response waar ik slechts enkele velden nodig van heb met Moshi?
-
-  ![](./notes_assets/images/google_books_API_response.png)
+  
 
   
