@@ -7,17 +7,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.navigation.NavController
-import androidx.navigation.NavDirections
-import androidx.navigation.fragment.findNavController
-import androidx.navigation.ui.setupWithNavController
 import be.howest.defoor.remi.minerva.AuthActivity
 import be.howest.defoor.remi.minerva.MinervaApplication
-import be.howest.defoor.remi.minerva.R
 import be.howest.defoor.remi.minerva.databinding.FragmentProfileBinding
 import be.howest.defoor.remi.minerva.model.view_models.ProfileViewModel
 import be.howest.defoor.remi.minerva.model.view_models.ProfileViewModelFactory
-import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class ProfileFragment : Fragment() {
 
@@ -33,14 +27,14 @@ class ProfileFragment : Fragment() {
         val fragmentBinding: FragmentProfileBinding = FragmentProfileBinding.inflate(inflater, container, false)
         fragmentBinding.lifecycleOwner = viewLifecycleOwner
         fragmentBinding.viewModel = viewModel
-        fragmentBinding.fragment = this@ProfileFragment
+        fragmentBinding.fragment = this
         binding = fragmentBinding
         return fragmentBinding.root
     }
 
-    fun logOff() {
-        // TODO implement
-        // navigateToAuthActivity()
+    fun signOff() {
+        viewModel.signOff()
+        navigateToAuthActivity()
     }
 
     private fun navigateToAuthActivity() {

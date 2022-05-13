@@ -13,6 +13,10 @@
 
 - Er wordt geen nieuwe notes API call gedaan wanneer ik naar de noties van een ander boek navigeer, waardoor voor elk boek de notities hetzelfde zijn.
 
+- Na authenticatie is de gebruiker nog niet beschikbaar in de Room database om in de main activity opgehaald te worden voor API calls.
+
+- De bottom navigation navigeert niet naar het books fragment, maar terug naar het laatst geopende fragment.
+
   
 
   

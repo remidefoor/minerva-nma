@@ -46,7 +46,7 @@
             android:layout_height="@dimen/form_elem_height"
             android:layout_marginTop="30dp"
             android:backgroundTint="@color/sand_accent"
-            android:onClick="@{() -> fragment.logOff()}"
+            android:onClick="@{() -> fragment.signOff()}"
             android:text="@string/log_off"
             android:textAllCaps="false"
             android:textColor="@color/navy_blue"
