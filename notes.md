@@ -1,23 +1,7 @@
 # todo
 
-- convert activity main to linear layout
-- parse response google books api
 - max width book title books page
 - padding books recycler view (item decoration)
-- replace mock data:
-  - books recycler view
-  - notes recycler view
-
-
-# validate
-
-- books fragment xml tree
-- notes fragment xml tree
-
-# topics
-
-- styles
-- themes
 
 # questions
 
@@ -26,6 +10,8 @@
 - Waar roep ik de functie op om te controleren of de gebruiker is ingelogd en indien nodig de main activity te openen?
 
 - Hoe return ik in een coroutine? Ik moet namelijk kunnen laten weten aan mijn fragment of de authenticatie geslaagd is om vervolgens al dan niet de main activity te openen.
+
+- Er wordt geen nieuwe notes API call gedaan wanneer ik naar de noties van een ander boek navigeer, waardoor voor elk boek de notities hetzelfde zijn.
 
   
 

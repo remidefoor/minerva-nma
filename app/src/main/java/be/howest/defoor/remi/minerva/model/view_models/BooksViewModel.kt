@@ -1,6 +1,5 @@
 package be.howest.defoor.remi.minerva.model.view_models
 
-import android.util.Log
 import androidx.lifecycle.*
 import be.howest.defoor.remi.minerva.Repositories.UserRepository
 import be.howest.defoor.remi.minerva.model.Book
@@ -12,7 +11,6 @@ import be.howest.defoor.remi.minerva.network.minerva.MinervaApi
 import be.howest.defoor.remi.minerva.network.minerva.UserBook
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
-import java.lang.IllegalArgumentException
 
 class BooksViewModel(private val userRepository: UserRepository) : ViewModel() {
 
@@ -35,7 +33,7 @@ class BooksViewModel(private val userRepository: UserRepository) : ViewModel() {
     private fun getAllBooks() {
         viewModelScope.launch {
             try {
-                val user = userRepository.user.first()
+                val user: User = userRepository.user.first()
                 val userBooks: List<UserBook> = MinervaApi.retrofitService.getUserBooks(user.id)
                 val books: MutableList<Book> = mutableListOf()
                 for (userBook: UserBook in userBooks) {

@@ -54,7 +54,7 @@ class BooksFragment : Fragment(), SearchView.OnQueryTextListener {
     }
 
     private fun setupBottomNavMenu(navController: NavController) {
-        val bottomNavMenu: BottomNavigationView? = view?.findViewById<BottomNavigationView>(R.id.books_bottom_nav_menu)
+        val bottomNavMenu: BottomNavigationView? = view?.findViewById(R.id.books_bottom_nav_menu)
         bottomNavMenu?.setupWithNavController(navController)
     }
 
