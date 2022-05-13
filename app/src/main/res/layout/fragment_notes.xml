@@ -63,6 +63,7 @@
                     android:layout_height="match_parent"
                     android:background="@color/sand_accent"
                     android:hint="@string/placeholder_note"
+                    android:text="@={viewModel.note}"
                     android:textColor="@color/navy_blue"
                     android:textColorHint="@color/sand_placeholder" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -73,7 +74,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_weight="1"
-                android:src="@drawable/ic_send_dark" />
+                android:src="@drawable/ic_send_dark"
+                android:onClick="@{() -> viewModel.postNote()}"/>
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

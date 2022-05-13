@@ -5,9 +5,12 @@ import be.howest.defoor.remi.minerva.Repositories.UserRepository
 import be.howest.defoor.remi.minerva.model.Book
 import be.howest.defoor.remi.minerva.model.Note
 import be.howest.defoor.remi.minerva.model.User
+import be.howest.defoor.remi.minerva.network.minerva.Id
 import be.howest.defoor.remi.minerva.network.minerva.MinervaApi
+import be.howest.defoor.remi.minerva.network.minerva.NoteText
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
+import java.util.*
 
 class NotesViewModel(private val userRepository: UserRepository, book: Book) : ViewModel() {
 
@@ -15,22 +18,49 @@ class NotesViewModel(private val userRepository: UserRepository, book: Book) : V
     val book: LiveData<Book>
         get() = _book
 
-    private val _notes: MutableLiveData<List<Note>> = MutableLiveData<List<Note>>()
-    val notes: LiveData<List<Note>>
+    private val _notes: MutableLiveData<MutableList<Note>> = MutableLiveData<MutableList<Note>>()
+    val notes: LiveData<MutableList<Note>>
         get() = _notes
+
+    private val _note: MutableLiveData<String> = MutableLiveData<String>()
+    val note: String
+        get() = _note.value!!
 
     init {
         _book.value = book
         getAllNotes()
+        _note.value = ""
+    }
+
+    fun setNote(note: String) {
+        if (_note.value != note) _note.value = note
     }
 
     private fun getAllNotes() {
         viewModelScope.launch {
             try {
                 val user: User = userRepository.user.first()
-                _notes.value = MinervaApi.retrofitService.getNotes(user.id, _book.value?.isbn!!)
+                _notes.value = LinkedList(MinervaApi.retrofitService.getNotes(user.id, _book.value?.isbn!!))
             } catch (ex: Exception) {
-                _notes.value = emptyList()
+                _notes.value = LinkedList()
+            }
+        }
+    }
+
+    fun postNote() {
+        viewModelScope.launch {
+            try {
+                val user: User = userRepository.user.first()
+                val noteText = NoteText(_note.value!!)
+                val noteId: Id = MinervaApi.retrofitService.postNote(
+                    user.id,
+                    _book.value?.isbn!!,
+                    noteText
+                )
+                _notes.value?.add(Note(noteId.id, noteText.note))
+                _note.value = ""
+            } catch (ex: java.lang.Exception) {
+                // TODO display error message
             }
         }
     }

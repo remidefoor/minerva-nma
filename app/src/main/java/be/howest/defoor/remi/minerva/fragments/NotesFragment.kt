@@ -21,7 +21,8 @@ class NotesFragment : Fragment() {
     private val viewModel: NotesViewModel by activityViewModels {
         NotesViewModelFactory(
             (activity?.application as MinervaApplication).userRepository,
-            NotesFragmentArgs.fromBundle(requireArguments()).book)
+            NotesFragmentArgs.fromBundle(requireArguments()).book
+        )
     }
 
     override fun onCreateView(
