@@ -76,10 +76,12 @@ class BooksViewModel(private val userRepository: UserRepository) : ViewModel() {
 }
 
 class BooksViewModelFactory(private val userRepository: UserRepository) : ViewModelProvider.Factory {
+
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(BooksViewModel::class.java)) {
             return BooksViewModel(userRepository) as T
         }
-        throw IllegalArgumentException("Unkown view model class.")
+        throw IllegalArgumentException("unkown view model class")
     }
+
 }

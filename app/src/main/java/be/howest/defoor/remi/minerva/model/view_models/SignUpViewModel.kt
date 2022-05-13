@@ -107,7 +107,7 @@ class SignUpViewModelFactory(private val userRepository: UserRepository) : ViewM
         if (modelClass.isAssignableFrom(SignUpViewModel::class.java)) {
             return SignUpViewModel(userRepository) as T
         }
-        throw IllegalArgumentException("Unknown view model class.")
+        throw IllegalArgumentException("unknown view model class")
     }
 
 }

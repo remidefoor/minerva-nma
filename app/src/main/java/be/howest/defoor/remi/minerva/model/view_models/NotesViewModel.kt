@@ -43,7 +43,7 @@ class NotesViewModelFactory(private val userRepository: UserRepository, private 
         if (modelClass.isAssignableFrom(NotesViewModel::class.java)) {
             return NotesViewModel(userRepository, book) as T
         }
-        throw IllegalArgumentException("Unknown view model class.")
+        throw IllegalArgumentException("unknown view model class")
     }
 
 }

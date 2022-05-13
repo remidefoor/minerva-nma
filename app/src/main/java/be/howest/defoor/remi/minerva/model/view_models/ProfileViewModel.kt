@@ -1,22 +1,23 @@
 package be.howest.defoor.remi.minerva.model.view_models
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
+import androidx.lifecycle.*
+import be.howest.defoor.remi.minerva.Repositories.UserRepository
 import be.howest.defoor.remi.minerva.model.User
+import java.lang.IllegalArgumentException
 
-class ProfileViewModel : ViewModel() {
+class ProfileViewModel(private val userRepository: UserRepository): ViewModel() {
 
-    private val _user: MutableLiveData<User> = MutableLiveData<User>()
-    val user: LiveData<User>
-        get() = _user
+    val user: LiveData<User> = userRepository.user.asLiveData()
 
-    init {
-        // _user.value = getUser()
-    }
+}
 
-    private fun getUser(): User {
-        TODO("TODO get user from room db")
+class ProfileViewModelFactory(private val userRepository: UserRepository) : ViewModelProvider.Factory {
+
+    override fun <T : ViewModel> create(modelClass: Class<T>): T {
+        if (modelClass.isAssignableFrom(ProfileViewModel::class.java)) {
+            return ProfileViewModel(userRepository) as T
+        }
+        throw IllegalArgumentException("unkown view model class")
     }
 
 }

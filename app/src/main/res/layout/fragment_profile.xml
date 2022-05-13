@@ -6,6 +6,9 @@
 
     <data>
         <variable
+            name="viewModel"
+            type="be.howest.defoor.remi.minerva.model.view_models.ProfileViewModel" />
+        <variable
             name="fragment"
             type="be.howest.defoor.remi.minerva.fragments.ProfileFragment" />
     </data>
@@ -31,6 +34,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
+            android:text="@{viewModel.user.email}"
             android:textColor="@color/navy_blue"
             app:layout_constraintStart_toStartOf="@+id/profile_button_og_off"
             app:layout_constraintTop_toBottomOf="@+id/profile_label_email"
