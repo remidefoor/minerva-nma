@@ -38,16 +38,6 @@ class ProfileFragment : Fragment() {
         return fragmentBinding.root
     }
 
-    private fun setupBottomNavMenu(navController: NavController) {
-        val bottomNavMenu: BottomNavigationView? = view?.findViewById(R.id.books_bottom_nav_menu)
-        bottomNavMenu?.setupWithNavController(navController)
-    }
-
-    private fun navigateToBooksFragment() {
-        val action: NavDirections = ProfileFragmentDirections.actionProfileFragmentToFragmentBooks()
-        findNavController().navigate(action)
-    }
-
     fun logOff() {
         // TODO implement
         // navigateToAuthActivity()

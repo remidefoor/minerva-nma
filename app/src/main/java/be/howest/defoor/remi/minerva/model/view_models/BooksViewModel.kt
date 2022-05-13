@@ -1,5 +1,6 @@
 package be.howest.defoor.remi.minerva.model.view_models
 
+import android.util.Log
 import androidx.lifecycle.*
 import be.howest.defoor.remi.minerva.Repositories.UserRepository
 import be.howest.defoor.remi.minerva.model.Book

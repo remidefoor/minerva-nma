@@ -53,11 +53,6 @@ class BooksFragment : Fragment(), SearchView.OnQueryTextListener {
         navigateToNotes(book)
     }
 
-    private fun setupBottomNavMenu(navController: NavController) {
-        val bottomNavMenu: BottomNavigationView? = view?.findViewById(R.id.books_bottom_nav_menu)
-        bottomNavMenu?.setupWithNavController(navController)
-    }
-
     private fun navigateToNotes(book: Book) {
         val action: NavDirections = BooksFragmentDirections.actionBooksFragmentToNotesFragment(book)
         findNavController().navigate(action)
