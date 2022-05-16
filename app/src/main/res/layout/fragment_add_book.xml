@@ -8,6 +8,9 @@
         <variable
             name="viewModel"
             type="be.howest.defoor.remi.minerva.model.view_models.AddBookViewModel" />
+        <variable
+            name="fragment"
+            type="be.howest.defoor.remi.minerva.fragments.AddBookFragment" />
     </data>
 
     <ScrollView
@@ -100,7 +103,7 @@
                 android:text="@string/button_add"
                 android:textAllCaps="false"
                 android:textColor="@color/sand_accent"
-                android:onClick="@{}"/>
+                android:onClick="@{() -> fragment.addBook()}"/>
         </LinearLayout>
     </ScrollView>
 </layout>
