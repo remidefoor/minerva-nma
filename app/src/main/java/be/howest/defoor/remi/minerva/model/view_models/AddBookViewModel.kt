@@ -22,8 +22,13 @@ class AddBookViewModel(private val userRepository: UserRepository) : ViewModel()
     val book: LiveData<Book>
         get() = _book
 
+    private val _bookAdded: MutableLiveData<Boolean> = MutableLiveData<Boolean>()
+    val bookAdded: LiveData<Boolean>
+        get() = _bookAdded
+
     init {
         _isbn.value = ""
+        _bookAdded.value = false
     }
 
     fun setIsbn(isbn: String) {
@@ -72,6 +77,7 @@ class AddBookViewModel(private val userRepository: UserRepository) : ViewModel()
                 try {
                     val user: User = userRepository.user.first()
                     MinervaApi.retrofitService.postUserBook(user.id, UserBook(it.isbn))
+                    _bookAdded.value = true
                 } catch (ex: Exception) {
                     // TODO display api errors
                 }

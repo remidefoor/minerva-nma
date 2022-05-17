@@ -43,6 +43,11 @@ class AddBookFragment : Fragment() {
         fragmentBinding.viewModel = viewModel
         fragmentBinding.fragment = this
         binding = fragmentBinding
+
+        viewModel.bookAdded.observe(viewLifecycleOwner) { bookAdded ->
+            if (bookAdded) navigateToBooks()
+        }
+
         return fragmentBinding.root
     }
 
@@ -58,7 +63,6 @@ class AddBookFragment : Fragment() {
 
     fun addBook() {
         viewModel.postBook()
-        navigateToBooks()
     }
 
     private fun navigateToBooks() {
