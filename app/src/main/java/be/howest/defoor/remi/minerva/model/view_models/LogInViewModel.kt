@@ -1,14 +1,13 @@
 package be.howest.defoor.remi.minerva.model.view_models
 
-import android.util.Log
 import androidx.lifecycle.*
 import be.howest.defoor.remi.minerva.Repositories.UserRepository
 import be.howest.defoor.remi.minerva.model.User
 import be.howest.defoor.remi.minerva.network.minerva.Credentials
 import be.howest.defoor.remi.minerva.network.minerva.Id
 import be.howest.defoor.remi.minerva.network.minerva.MinervaApi
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
-import java.lang.IllegalStateException
 
 class LogInViewModel(private val userRepository: UserRepository) : ViewModel() {
     
@@ -27,7 +26,7 @@ class LogInViewModel(private val userRepository: UserRepository) : ViewModel() {
     init {
         _email.value = ""
         _password.value = ""
-        _loggedIn.value = false
+        checkLogInState()
     }
 
     fun setEmail(email: String) {
@@ -36,6 +35,13 @@ class LogInViewModel(private val userRepository: UserRepository) : ViewModel() {
 
     fun setPassword(password: String) {
         if (this.password != password) _password.value = password
+    }
+
+    private fun checkLogInState() {
+        viewModelScope.launch {
+            val user: User = userRepository.user.first()
+            _loggedIn.value = if (user != null) true else false
+        }
     }
 
     fun postLogIn() {
