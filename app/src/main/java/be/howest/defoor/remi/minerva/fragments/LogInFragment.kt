@@ -34,12 +34,18 @@ class LogInFragment : Fragment() {
         fragmentBinding.viewModel = viewModel
         fragmentBinding.fragment = this
         binding = fragmentBinding
+
+        viewModel.loggedIn.observe(viewLifecycleOwner) { loggedIn ->
+            if (loggedIn) {
+                navigateToMainActivity()
+            }
+        }
+
         return fragmentBinding.root
     }
 
     fun logIn() {
         viewModel.postLogIn()
-        navigateToMainActivity()
     }
 
     private fun navigateToMainActivity() {
