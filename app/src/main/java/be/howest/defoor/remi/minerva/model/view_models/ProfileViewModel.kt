@@ -10,9 +10,18 @@ class ProfileViewModel(private val userRepository: UserRepository): ViewModel() 
 
     val user: LiveData<User> = userRepository.user.asLiveData()
 
+    private val _loggedIn: MutableLiveData<Boolean> = MutableLiveData<Boolean>()
+    val loggedIn: LiveData<Boolean>
+        get() = _loggedIn
+
+    init {
+        _loggedIn.value = true
+    }
+
     fun signOff() {
         viewModelScope.launch {
             userRepository.deleteUser(user.value!!)
+            _loggedIn.value = false
         }
     }
 

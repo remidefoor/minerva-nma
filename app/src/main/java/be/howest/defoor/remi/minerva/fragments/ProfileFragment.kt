@@ -29,12 +29,16 @@ class ProfileFragment : Fragment() {
         fragmentBinding.viewModel = viewModel
         fragmentBinding.fragment = this
         binding = fragmentBinding
+
+        viewModel.loggedIn.observe(viewLifecycleOwner) { loggedIn ->
+            if (!loggedIn) navigateToAuthActivity()
+        }
+
         return fragmentBinding.root
     }
 
     fun signOff() {
         viewModel.signOff()
-        navigateToAuthActivity()
     }
 
     private fun navigateToAuthActivity() {
