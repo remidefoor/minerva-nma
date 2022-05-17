@@ -51,8 +51,19 @@
                 android:text="@string/button_search"
                 android:textAllCaps="false"
                 android:textColor="@color/sand_accent"
-                android:layout_marginBottom="50dp"
+                android:layout_marginBottom="20dp"
                 android:onClick="@{() -> viewModel.getBookInfo()}"/>
+
+            <Button
+                android:id="@+id/add_book_button_scan"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/form_elem_height"
+                android:background="@color/navy_blue"
+                android:text="@string/button_scan"
+                android:textAllCaps="false"
+                android:textColor="@color/sand_accent"
+                android:layout_marginBottom="50dp"
+                android:onClick="@{() -> fragment.scanBook()}"/>
 
             <ImageView
                 android:id="@+id/add_book_book_cover"
