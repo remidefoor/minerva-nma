@@ -33,12 +33,16 @@ class SignUpFragment : Fragment() {
         fragmentBinding.viewModel = viewModel
         fragmentBinding.fragment = this
         binding = fragmentBinding
+
+        viewModel.loggedIn.observe(viewLifecycleOwner) { loggedIn ->
+            if (loggedIn) navigateToMainActivity()
+        }
+
         return fragmentBinding.root
     }
 
     fun signUp() {
         viewModel.postUser()
-        navigateToMainActivity()
     }
 
     private fun navigateToMainActivity() {

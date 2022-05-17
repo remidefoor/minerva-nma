@@ -36,9 +36,7 @@ class LogInFragment : Fragment() {
         binding = fragmentBinding
 
         viewModel.loggedIn.observe(viewLifecycleOwner) { loggedIn ->
-            if (loggedIn) {
-                navigateToMainActivity()
-            }
+            if (loggedIn) navigateToMainActivity()
         }
 
         return fragmentBinding.root

@@ -1,9 +1,6 @@
 package be.howest.defoor.remi.minerva.model.view_models
 
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import be.howest.defoor.remi.minerva.Repositories.UserRepository
 import be.howest.defoor.remi.minerva.model.User
 import be.howest.defoor.remi.minerva.network.minerva.Credentials
@@ -25,10 +22,15 @@ class SignUpViewModel(private val userRepository: UserRepository) : ViewModel() 
     val confirmedPassword: String
         get() = _confirmedPassword.value!!
 
+    private val _loggedIn: MutableLiveData<Boolean> = MutableLiveData<Boolean>()
+    val loggedIn: LiveData<Boolean>
+         get() = _loggedIn
+
     init {
         _email.value = ""
         _password.value = ""
         _confirmedPassword.value = ""
+        _loggedIn.value = false
     }
 
     fun setEmail(email: String) {
@@ -83,6 +85,7 @@ class SignUpViewModel(private val userRepository: UserRepository) : ViewModel() 
     private fun saveUser(user: User) {
         viewModelScope.launch {
             userRepository.createUser(user)
+            _loggedIn.value = true
         }
     }
 
