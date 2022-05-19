@@ -23,10 +23,8 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_gravity="end"
-            android:background="@color/navy_blue_accent"
             android:padding="6dp"
             android:text="@{note.note}"
-            android:textColor="@color/white"
             tools:text="Ron and Hermione" />
     </LinearLayout>
 </layout>

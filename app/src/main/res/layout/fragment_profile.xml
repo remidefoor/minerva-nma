@@ -16,8 +16,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/profile_constraint_layout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/sand">
+        android:layout_height="match_parent">
 
         <TextView
             android:id="@+id/profile_label_email"
@@ -25,7 +24,6 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
             android:text="@string/label_account"
-            android:textColor="@color/navy_blue"
             app:layout_constraintStart_toStartOf="@+id/profile_button_og_off"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -35,7 +33,6 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:text="@{viewModel.user.email}"
-            android:textColor="@color/navy_blue"
             app:layout_constraintStart_toStartOf="@+id/profile_button_og_off"
             app:layout_constraintTop_toBottomOf="@+id/profile_label_email"
             tools:text="remi.defoor@student.howest.be" />
@@ -54,11 +51,9 @@
             android:layout_width="@dimen/form_elem_width"
             android:layout_height="@dimen/form_elem_height"
             android:layout_marginTop="30dp"
-            android:backgroundTint="@color/sand_accent"
             android:onClick="@{() -> fragment.signOff()}"
             android:text="@string/log_off"
             android:textAllCaps="false"
-            android:textColor="@color/navy_blue"
             app:cornerRadius="@dimen/corner_radius"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"

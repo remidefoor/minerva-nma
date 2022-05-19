@@ -37,7 +37,6 @@
             android:layout_gravity="center"
             android:layout_marginTop="20dp"
             android:text="@{book.title}"
-            android:textColor="@color/navy_blue"
             tools:text="Harry Potter and the Philosopher's Stone" />
     </LinearLayout>
 </layout>

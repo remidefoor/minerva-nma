@@ -14,7 +14,6 @@
         android:id="@+id/notes_constraint_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/sand"
         android:orientation="vertical">
 
         <FrameLayout
@@ -61,11 +60,8 @@
                     android:id="@+id/notes_input_note"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@color/sand_accent"
                     android:hint="@string/placeholder_note"
-                    android:text="@={viewModel.note}"
-                    android:textColor="@color/navy_blue"
-                    android:textColorHint="@color/sand_placeholder" />
+                    android:text="@={viewModel.note}" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <ImageView

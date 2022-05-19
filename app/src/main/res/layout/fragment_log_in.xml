@@ -16,8 +16,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/log_in_constraint_layout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/sand">
+        android:layout_height="match_parent">
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/log_in_input_email_wrapper"
@@ -33,12 +32,9 @@
                 android:id="@+id/log_in_input_email"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/sand_accent"
                 android:hint="@string/email"
                 android:inputType="textEmailAddress"
-                android:text="@={viewModel.email}"
-                android:textColor="@color/navy_blue"
-                android:textColorHint="@color/navy_blue" />
+                android:text="@={viewModel.email}" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -55,12 +51,9 @@
                 android:id="@+id/log_in_input_password"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/sand_accent"
                 android:hint="@string/password"
                 android:inputType="textPassword"
-                android:text="@={viewModel.password}"
-                android:textColor="@color/navy_blue"
-                android:textColorHint="@color/navy_blue" />
+                android:text="@={viewModel.password}" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
@@ -68,11 +61,9 @@
             android:layout_width="wrap_content"
             android:layout_height="@dimen/form_elem_height"
             android:layout_marginTop="30dp"
-            android:backgroundTint="@color/sand_accent"
             android:onClick="@{() -> fragment.logIn()}"
             android:text="@string/log_in"
             android:textAllCaps="false"
-            android:textColor="@color/navy_blue"
             app:cornerRadius="@dimen/corner_radius"
             app:layout_constraintEnd_toEndOf="@+id/log_in_input_password_wrapper"
             app:layout_constraintTop_toBottomOf="@+id/log_in_input_password_wrapper" />
@@ -86,7 +77,6 @@
             android:focusable="true"
             android:onClick="@{() -> fragment.navigateToSignUpFragment()}"
             android:text="@string/sign_up"
-            android:textColor="@color/navy_blue"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
