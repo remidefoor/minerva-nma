@@ -17,6 +17,7 @@
     <!-- profile -->
     <string name="label_account">Account:</string>
     <string name="log_off">Log off</string>
+    <string name="switch_dark_mode">Dark mode</string>
     <!-- add book -->
     <string name="placeholder_isbn">ISBN</string>
     <string name="button_search">Search</string>

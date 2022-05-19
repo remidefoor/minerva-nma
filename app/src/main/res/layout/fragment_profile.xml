@@ -26,7 +26,7 @@
             android:layout_marginTop="40dp"
             android:text="@string/label_account"
             android:textColor="@color/navy_blue"
-            app:layout_constraintStart_toStartOf="@+id/profile_email"
+            app:layout_constraintStart_toStartOf="@+id/profile_button_og_off"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
@@ -39,6 +39,15 @@
             app:layout_constraintStart_toStartOf="@+id/profile_button_og_off"
             app:layout_constraintTop_toBottomOf="@+id/profile_label_email"
             tools:text="remi.defoor@student.howest.be" />
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/profile_theme"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="@string/switch_dark_mode"
+            app:layout_constraintStart_toStartOf="@+id/profile_button_og_off"
+            app:layout_constraintTop_toBottomOf="@+id/profile_email" />
 
         <Button
             android:id="@+id/profile_button_og_off"
@@ -54,7 +63,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/profile_email" />
+            app:layout_constraintTop_toBottomOf="@+id/profile_theme" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
