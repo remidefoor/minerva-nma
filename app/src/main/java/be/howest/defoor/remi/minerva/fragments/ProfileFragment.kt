@@ -44,6 +44,7 @@ class ProfileFragment : Fragment() {
                 AppCompatDelegate.setDefaultNightMode(MODE_NIGHT_NO)
             }
         }
+
         return fragmentBinding.root
     }
 
