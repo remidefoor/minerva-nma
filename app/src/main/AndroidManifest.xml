@@ -5,6 +5,10 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
 
+    <!-- optimize google play visibility -->
+    <uses-feature android:name="android.hardware.camera"
+        android:required="false" />
+
     <application
         android:name=".MinervaApplication"
         android:allowBackup="true"

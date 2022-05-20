@@ -8,6 +8,9 @@
         <variable
             name="viewModel"
             type="be.howest.defoor.remi.minerva.model.view_models.NotesViewModel" />
+        <variable
+            name="fragment"
+            type="be.howest.defoor.remi.minerva.fragments.NotesFragment" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -50,6 +53,15 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent">
+
+            <ImageView
+                android:id="@+id/notes_ic_photo_camera"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:src="@drawable/ic_photo_camera_dark"
+                android:onClick="@{() -> fragment.dispatchTakePicture()}"/>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/notes_input_note_wrapper"

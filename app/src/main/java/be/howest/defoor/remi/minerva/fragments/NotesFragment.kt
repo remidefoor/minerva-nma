@@ -1,7 +1,9 @@
 package be.howest.defoor.remi.minerva.fragments
 
 import android.content.Context.INPUT_METHOD_SERVICE
+import android.content.Intent
 import android.os.Bundle
+import android.provider.MediaStore
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,6 +16,7 @@ import be.howest.defoor.remi.minerva.adapters.NoteAdapter
 import be.howest.defoor.remi.minerva.databinding.FragmentNotesBinding
 import be.howest.defoor.remi.minerva.model.view_models.NotesViewModel
 import be.howest.defoor.remi.minerva.model.view_models.NotesViewModelFactory
+import java.lang.Exception
 
 class NotesFragment : Fragment() {
 
@@ -32,6 +35,7 @@ class NotesFragment : Fragment() {
         val fragmentBinding: FragmentNotesBinding = FragmentNotesBinding.inflate(inflater, container, false)
         fragmentBinding.lifecycleOwner = viewLifecycleOwner
         fragmentBinding.viewModel = viewModel
+        fragmentBinding.fragment = this
         binding = fragmentBinding
 
         val recyclerView: RecyclerView = fragmentBinding.notesRecyclerView
@@ -39,6 +43,21 @@ class NotesFragment : Fragment() {
         recyclerView.adapter = NoteAdapter()
 
         return fragmentBinding.root
+    }
+
+    /**
+     * This functionality is to show I know how to use implicit intents.
+     * The Camera class is deprecated and usage of CameraX instead is recommended.
+     * CameraX, however, makes use of builders and does not enable me to
+     * demonstrate implicit intent usage.
+     */
+    fun dispatchTakePicture() {
+        val takePictureIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+        try {
+            startActivity(takePictureIntent)
+        } catch (ex: Exception) {
+            // TODO display error message
+        }
     }
 
     override fun onDestroyView() {
