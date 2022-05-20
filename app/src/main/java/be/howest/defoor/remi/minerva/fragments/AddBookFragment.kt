@@ -27,11 +27,7 @@ class AddBookFragment : Fragment() {
     }
 
     private val scanner: ActivityResultLauncher<ScanOptions> = registerForActivityResult(ScanContract()) { result ->
-        if (result.contents == null) {
-            // TODO display error message
-        } else {
-            viewModel.setIsbn(result.contents)
-        }
+        if (result.contents != null) viewModel.setIsbn(result.contents)
     }
 
     override fun onCreateView(

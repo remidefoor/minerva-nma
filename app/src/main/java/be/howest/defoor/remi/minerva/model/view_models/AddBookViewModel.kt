@@ -41,12 +41,7 @@ class AddBookViewModel(private val userRepository: UserRepository) : ViewModel()
                 validateIsbn()
                 val volume: Volume = GoogleBooksApi.retrofitService.getBook("isbn:${_isbn.value}")
                 _book.value = mapVolumeToBook(_isbn.value!!, volume)
-            } catch (ex: IllegalStateException) {
-                // TODO display error message
-            } catch (ex: IllegalArgumentException) {
-                // TODO display error message
             } catch (ex: Exception) {
-                // TODO display api errors
             }
         }
     }
@@ -79,7 +74,6 @@ class AddBookViewModel(private val userRepository: UserRepository) : ViewModel()
                     MinervaApi.retrofitService.postUserBook(user.id, UserBook(it.isbn))
                     _bookAdded.value = true
                 } catch (ex: Exception) {
-                    // TODO display api errors
                 }
             }
         }

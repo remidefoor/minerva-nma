@@ -60,7 +60,6 @@ class NotesViewModel(private val userRepository: UserRepository, book: Book) : V
                 _notes.value?.add(Note(noteId.id, noteText.note))
                 _note.value = ""
             } catch (ex: java.lang.Exception) {
-                // TODO display error message
             }
         }
     }

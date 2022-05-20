@@ -53,9 +53,7 @@ class LogInViewModel(private val userRepository: UserRepository) : ViewModel() {
                 val user = User(id.id, credentials.email, credentials.password)
                 saveUser(user)
             } catch (ex: IllegalStateException) {
-                // TODO display error message
             } catch (ex: Exception) {
-                // TODO display api errors
                 resetCredentials()
             }
         }
@@ -79,7 +77,6 @@ class LogInViewModel(private val userRepository: UserRepository) : ViewModel() {
     }
 
     private fun resetCredentials() {
-        // TODO values are not reset
         setEmail("")
         setPassword("")
     }

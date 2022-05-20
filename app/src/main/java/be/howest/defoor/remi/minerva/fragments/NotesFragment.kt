@@ -56,7 +56,6 @@ class NotesFragment : Fragment() {
         try {
             startActivity(takePictureIntent)
         } catch (ex: Exception) {
-            // TODO display error message
         }
     }
 
