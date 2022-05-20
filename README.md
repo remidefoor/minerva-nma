@@ -1,6 +1,6 @@
 # Backend
 
-This Native Mobile App makes use of two backends.
+This Progressive Web App makes use of two backends.
 
 ## Minerva
 
@@ -8,8 +8,8 @@ The first one is the Minerva API. This API has a [Laravel](https://git.ti.howest
 
 Both backends have to be ran locally. The Laravel implementation contains the migrations and seeders.
 
-You might have to adapt the base URL of the backend depending on your setup, which can be done in MinervaApiService.kt.
+You might have to adapt the base URL of the backend depending on your setup. This can be done in script.js.
 
 ## Google Books
 
-The second one is the Google Books API, used to get all the metadata of an book based, on its ISBN.
+The second one is the Google Books API, used to get all the metadata of a book, based on its ISBN.
