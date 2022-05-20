@@ -27,7 +27,7 @@ class BooksFragment : Fragment(), SearchView.OnQueryTextListener {
     private val bookAdapter: BookAdapter = BookAdapter(BookListener { book: Book ->  handleClickOnBook(book) })
     private var binding: FragmentBooksBinding? = null
     private val viewModel: BooksViewModel by activityViewModels {
-        BooksViewModelFactory((activity?.application as MinervaApplication).userRepository)
+        BooksViewModelFactory((activity?.application as MinervaApplication).bookRepository)
     }
 
     override fun onCreateView(

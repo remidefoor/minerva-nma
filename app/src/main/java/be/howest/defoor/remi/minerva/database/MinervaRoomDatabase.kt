@@ -7,7 +7,7 @@ import androidx.room.RoomDatabase
 import be.howest.defoor.remi.minerva.model.Book
 import be.howest.defoor.remi.minerva.model.User
 
-@Database(entities = [User::class], version = 1, exportSchema = false)
+@Database(entities = [User::class, Book::class], version = 2, exportSchema = false)
 abstract class MinervaRoomDatabase : RoomDatabase() {
 
     abstract fun userDao(): UserDao

@@ -37,8 +37,8 @@ class BookRepository(private val userRepository: UserRepository, private val boo
         return Book(
             isbn,
             volumeInfo.imageLinks.thumbnail,
-            volumeInfo.title,
-            volumeInfo.authors
+            volumeInfo.title
+            // volumeInfo.authors
         )
     }
 

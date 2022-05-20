@@ -66,8 +66,8 @@ class AddBookViewModel(private val userRepository: UserRepository) : ViewModel()
         return Book(
             isbn,
             volumeInfo.imageLinks.thumbnail,
-            volumeInfo.title,
-            volumeInfo.authors
+            volumeInfo.title
+            // volumeInfo.authors
         )
     }
 

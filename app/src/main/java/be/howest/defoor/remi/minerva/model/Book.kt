@@ -10,6 +10,6 @@ import kotlinx.android.parcel.Parcelize
 data class Book(
     @PrimaryKey val isbn: String,
     val imageUrl: String,
-    val title: String,
-    val authors: List<String>
+    val title: String
+    // val authors: List<String>
 ) : Parcelable
