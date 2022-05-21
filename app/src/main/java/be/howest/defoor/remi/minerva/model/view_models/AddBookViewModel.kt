@@ -1,6 +1,7 @@
 package be.howest.defoor.remi.minerva.model.view_models
 
 import androidx.lifecycle.*
+import be.howest.defoor.remi.minerva.Repositories.BookRepository
 import be.howest.defoor.remi.minerva.Repositories.UserRepository
 import be.howest.defoor.remi.minerva.model.Book
 import be.howest.defoor.remi.minerva.model.User
@@ -12,7 +13,8 @@ import be.howest.defoor.remi.minerva.network.minerva.UserBook
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 
-class AddBookViewModel(private val userRepository: UserRepository) : ViewModel() {
+class AddBookViewModel(private val userRepository: UserRepository,
+                       private val bookRepository: BookRepository) : ViewModel() {
 
     private val _isbn: MutableLiveData<String> = MutableLiveData<String>()
     val isbn: String
@@ -80,11 +82,11 @@ class AddBookViewModel(private val userRepository: UserRepository) : ViewModel()
 
 }
 
-class AddBookViewModelFactory(private val userRepository: UserRepository) : ViewModelProvider.Factory {
+class AddBookViewModelFactory(private val userRepository: UserRepository, private val bookRepository: BookRepository) : ViewModelProvider.Factory {
 
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(AddBookViewModel::class.java)) {
-            return AddBookViewModel(userRepository) as T
+            return AddBookViewModel(userRepository, bookRepository) as T
         }
         throw IllegalArgumentException("unknown view model class")
     }

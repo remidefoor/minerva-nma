@@ -20,7 +20,8 @@ class ProfileFragment : Fragment() {
 
     private var binding: FragmentProfileBinding? = null
     private val viewModel: ProfileViewModel by activityViewModels {
-        ProfileViewModelFactory((activity?.application as MinervaApplication).userRepository)
+        val app: MinervaApplication = activity?.application as MinervaApplication
+        ProfileViewModelFactory(app.userRepository, app.bookRepository)
     }
 
     override fun onCreateView(

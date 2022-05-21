@@ -1,5 +1,6 @@
 package be.howest.defoor.remi.minerva.Repositories
 
+import androidx.annotation.WorkerThread
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.asLiveData
 import be.howest.defoor.remi.minerva.database.BookDao
@@ -17,6 +18,12 @@ import kotlinx.coroutines.withContext
 class BookRepository(private val userRepository: UserRepository, private val bookDao: BookDao) {
 
     val books: LiveData<List<Book>> = bookDao.readBooks().asLiveData()
+
+    @Suppress("RedundantSuspendModifier")
+    @WorkerThread
+    suspend fun deleteBook(book: Book) {
+        bookDao.deleteBook(book)
+    }
 
     suspend fun refreshBooks() {
         withContext(Dispatchers.IO) {
