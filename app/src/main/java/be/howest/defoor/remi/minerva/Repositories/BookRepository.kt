@@ -21,6 +21,12 @@ class BookRepository(private val userRepository: UserRepository, private val boo
 
     @Suppress("RedundantSuspendModifier")
     @WorkerThread
+    suspend fun createBook(book: Book) {
+        bookDao.createBook(book)
+    }
+
+    @Suppress("RedundantSuspendModifier")
+    @WorkerThread
     suspend fun deleteBook(book: Book) {
         bookDao.deleteBook(book)
     }

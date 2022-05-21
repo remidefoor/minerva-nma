@@ -10,6 +10,9 @@ interface BookDao {
     @Insert(onConflict =  OnConflictStrategy.REPLACE)
     suspend fun createBooks(books: List<Book>)
 
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun createBook(book: Book)
+
     @Delete
     suspend fun deleteBook(book: Book)
 

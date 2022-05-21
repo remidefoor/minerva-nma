@@ -73,6 +73,7 @@ class AddBookViewModel(private val userRepository: UserRepository,
                 try {
                     val user: User = userRepository.user.first()
                     MinervaApi.retrofitService.postUserBook(user.id, UserBook(it.isbn))
+                    bookRepository.createBook(it)
                     _bookAdded.value = true
                 } catch (ex: Exception) {
                 }

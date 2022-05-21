@@ -23,7 +23,8 @@ class AddBookFragment : Fragment() {
 
     private var binding: FragmentAddBookBinding? = null
     private val viewModel: AddBookViewModel by activityViewModels {
-        AddBookViewModelFactory((activity?.application as MinervaApplication).userRepository)
+        val app: MinervaApplication = activity?.application as MinervaApplication
+        AddBookViewModelFactory(app.userRepository, app.bookRepository)
     }
 
     private val scanner: ActivityResultLauncher<ScanOptions> = registerForActivityResult(ScanContract()) { result ->
