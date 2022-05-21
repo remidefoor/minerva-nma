@@ -37,6 +37,10 @@ class ProfileFragment : Fragment() {
             if (!loggedIn) navigateToAuthActivity()
         }
 
+        if (AppCompatDelegate.getDefaultNightMode() == MODE_NIGHT_YES) {
+            fragmentBinding.profileTheme.isChecked = true
+        }
+
         fragmentBinding.profileTheme.setOnCheckedChangeListener { switch, checked ->
             if (checked) {
                 AppCompatDelegate.setDefaultNightMode(MODE_NIGHT_YES)
