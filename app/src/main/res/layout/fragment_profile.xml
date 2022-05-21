@@ -8,9 +8,6 @@
         <variable
             name="viewModel"
             type="be.howest.defoor.remi.minerva.model.view_models.ProfileViewModel" />
-        <variable
-            name="fragment"
-            type="be.howest.defoor.remi.minerva.fragments.ProfileFragment" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -51,7 +48,7 @@
             android:layout_width="@dimen/form_elem_width"
             android:layout_height="@dimen/form_elem_height"
             android:layout_marginTop="30dp"
-            android:onClick="@{() -> fragment.signOff()}"
+            android:onClick="@{() -> viewModel.signOff()}"
             android:text="@string/log_off"
             android:textAllCaps="false"
             app:cornerRadius="@dimen/corner_radius"

@@ -58,10 +58,6 @@ class AddBookFragment : Fragment() {
         scanner.launch(scannerOptions)
     }
 
-    fun addBook() {
-        viewModel.postBook()
-    }
-
     private fun navigateToBooks() {
         val action: NavDirections = AddBookFragmentDirections.actionAddBookFragmentToFragmentBooks()
         findNavController().navigate(action)

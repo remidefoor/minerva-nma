@@ -88,7 +88,7 @@
                 android:layout_height="@dimen/form_elem_height"
                 android:text="@string/button_add"
                 android:textAllCaps="false"
-                android:onClick="@{() -> fragment.addBook()}"/>
+                android:onClick="@{() -> viewModel.postBook()}"/>
         </LinearLayout>
     </ScrollView>
 </layout>

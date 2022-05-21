@@ -31,7 +31,6 @@ class ProfileFragment : Fragment() {
         val fragmentBinding: FragmentProfileBinding = FragmentProfileBinding.inflate(inflater, container, false)
         fragmentBinding.lifecycleOwner = viewLifecycleOwner
         fragmentBinding.viewModel = viewModel
-        fragmentBinding.fragment = this
         binding = fragmentBinding
 
         viewModel.loggedIn.observe(viewLifecycleOwner) { loggedIn ->
@@ -47,10 +46,6 @@ class ProfileFragment : Fragment() {
         }
 
         return fragmentBinding.root
-    }
-
-    fun signOff() {
-        viewModel.signOff()
     }
 
     private fun navigateToAuthActivity() {

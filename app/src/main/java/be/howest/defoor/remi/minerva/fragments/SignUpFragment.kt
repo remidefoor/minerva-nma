@@ -41,10 +41,6 @@ class SignUpFragment : Fragment() {
         return fragmentBinding.root
     }
 
-    fun signUp() {
-        viewModel.postUser()
-    }
-
     private fun navigateToMainActivity() {
         val intent = Intent(activity, MainActivity::class.java)
         startActivity(intent)

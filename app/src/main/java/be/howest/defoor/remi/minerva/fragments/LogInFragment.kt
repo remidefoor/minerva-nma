@@ -42,10 +42,6 @@ class LogInFragment : Fragment() {
         return fragmentBinding.root
     }
 
-    fun logIn() {
-        viewModel.postLogIn()
-    }
-
     private fun navigateToMainActivity() {
         val intent = Intent(activity, MainActivity::class.java)
         startActivity(intent)
